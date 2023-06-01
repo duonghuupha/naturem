@@ -724,8 +724,8 @@ textarea.form-control.is-invalid {
 }
 
 .vs-mobile-menu ul li a:before {
-    content: "ï„…";
-    font-family: var(--icon-font);
+    /*content: "ï„…";
+    font-family: var(--icon-font);*/
     position: relative;
     left: 0;
     top: 0;
@@ -746,7 +746,7 @@ textarea.form-control.is-invalid {
 }
 
 .vs-mobile-menu ul .vs-item-has-children>a:after {
-    content: "ï§";
+    content: "+";
     font-family: var(--icon-font);
     position: absolute;
     right: 0;
@@ -769,7 +769,7 @@ textarea.form-control.is-invalid {
 }
 
 .vs-mobile-menu ul .vs-item-has-children.vs-active>a:after {
-    content: "ï¨"
+    content: "-"
 }
 
 .vs-mobile-menu>ul {

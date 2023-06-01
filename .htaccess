@@ -6,11 +6,24 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^(.*)-menu-([0-9]+).html$ index.php?name=menu&id=$2 [QSA,L]
 
-RewriteRule ^(.*)-blogs-([0-9]+).html$ index.php?url=blogs&id=$2 [QSA,L]
+RewriteRule blogs.html$ index.php?url=blogs [QSA,L]
+RewriteRule ^(.*)-blogs-([0-9]+).html$ index.php?url=blogs/detail&id=$2 [QSA,L]
 
 RewriteRule ^(.*)-category-([0-9]+).html$ index.php?url=product&id=$2 [QSA,L]
 RewriteRule ^(.*)-product-([0-9]+).html$ index.php?url=product/detail&id=$2 [QSA,L]
 
 RewriteRule ^contact.html$ index.php?url=contact [QSA,L]
+
+RewriteRule ^login.html$ index.php?url=acount/login [QSA,L]
+RewriteRule ^profile.html$ index.php?url=acount/profile [QSA,L]
+RewriteRule ^register.html$ index.php?url=register [QSA,L]
+RewriteRule ^log_action$ index.php?url=acount/do_login [QSA,L]
+RewriteRule ^reg_action$ index.php?url=acount/do_register [QSA,L]
+
+RewriteRule ^manager_address$ index.php?url=address [QSA,L]
+RewriteRule ^ad_add$ index.php?url=address/add [QSA,L]
+RewriteRule ^ad_update$ index.php?url=address/update [QSA,L]
+RewriteRule ^ad_del$ index.php?url=address/del [QSA,L]
+RewriteRule ^ad_change$ index.php?url=address/change [QSA,L]
 
 php_value display_errors on
