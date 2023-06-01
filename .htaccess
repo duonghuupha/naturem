@@ -1,0 +1,16 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.*)-menu-([0-9]+).html$ index.php?name=menu&id=$2 [QSA,L]
+
+RewriteRule ^(.*)-blogs-([0-9]+).html$ index.php?url=blogs&id=$2 [QSA,L]
+
+RewriteRule ^(.*)-category-([0-9]+).html$ index.php?url=product&id=$2 [QSA,L]
+RewriteRule ^(.*)-product-([0-9]+).html$ index.php?url=product/detail&id=$2 [QSA,L]
+
+RewriteRule ^contact.html$ index.php?url=contact [QSA,L]
+
+php_value display_errors on
