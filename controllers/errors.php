@@ -5,7 +5,7 @@ class Errors extends Controller{
     }
 
     function index(){
-        require('layouts/header.php');
+        require('layouts/global/header.php');
         $this->view->render('errors/index');
         require('layouts/footer.php');
     }
