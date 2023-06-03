@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?php echo URL.'/styles' ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo URL.'/styles' ?>/assets/css/theme-color1.css">
     <link rel="stylesheet" id="themeColor" href="#">
+    <link href="<?php echo URL.'/styles/assets/img/default.png' ?>" rel="icon" />
 </head>
 
 <body class="home-6">

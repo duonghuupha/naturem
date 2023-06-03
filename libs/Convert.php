@@ -140,7 +140,9 @@ class Convert{
         return implode(" ",  $fullname);
     }
 
-    // cat chuoi
+    /**
+     * Cat chuoi 
+     */
     function cut($str, $len){
         $str = trim($str);
         if (strlen($str) <= $len) return $str;
@@ -151,6 +153,26 @@ class Convert{
             $str = substr($str, 0, -1)." ...";
         }
         return $str;
+    }
+
+    /**
+     * Tra ve link cua menu
+     */
+    function return_link_menu($id, $title, $type_menu, $link){
+        if($type_menu == 1){// mot bai viet
+            $str_link = URL.'/'.$this->vn2latin($title, true).'-blogs-'.$link.'.html';
+        }elseif($type_menu == 2){ // danh sach bai viet
+            $str_link = URL.'/blogs.html';
+        }elseif($type_menu == 3){ //  mot san pham
+            $str_link = URL.'/'.$this->vn2latin($title, true).'-product-'.$link.'.html';
+        }elseif($type_menu == 4){ // danh sach san pham
+            $str_link = URL.'/'.$this->vn2latin($title, true).'-menu-'.$id.'.html';
+        }elseif($type_menu == 5){ // lien he
+            $str_link = URL.'/contact.html';
+        }else{
+            $str_link = $link;
+        }
+        return $str_link;
     }
 }
 ?>

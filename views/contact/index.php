@@ -1,3 +1,6 @@
+<?php
+$global = $this->_Data->get_setting_global();
+?>
     <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200"
         data-bg-src="<?php echo URL.'/styles/' ?>assets/img/breadcumb/breadcumb-img-1.jpg">
         <div class="container">
@@ -16,51 +19,23 @@
                 <div class="col-lg-6">
                     <div class="section-title mb-25">
                         <h2 class="sec-title1">Address</h2>
-                        <h3 class="sec-title2">Information</h3><img src="assets/img/icons/sec-icon-1.png"
-                            alt="Section Image">
-                        <p class="fs-md mt-4 pt-1">Donec sed laoreet odio. Quisque sollicitudin vestibulum ultrices.
-                            Nulla pellentesque odio eget urna venenatis, ac maximus diam auctor. Phasellus aliquam neque
-                            non sodales lacinia.</p>
+                        <p class="fs-md mt-4 pt-1" style="text-align:justify">
+                            <?php  
+                            echo $global[0]['description']
+                            ?>
+                        </p>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
-                            <h4>Colourbar U.S.A</h4>
-                            <p class="mb-0 fw-semibold">Dhaka In Twin Tower Concord Shopping Complex</p>
-                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
-                            <p class="mb-0 fw-semibold">yourinfo@gmail.com</p>
-                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
-                        </div>
-                        <div class="col-sm-6 mb-20">
-                            <h4>Frankfurt D.E</h4>
-                            <p class="mb-0 fw-semibold">Bayreuther Strasse 42 Protective Service Occupations</p>
-                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
-                            <p class="mb-0 fw-semibold">yourinfo@gmail.com</p>
-                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4>Uusimaa ESPOO</h4>
-                            <p class="mb-0 fw-semibold">Snellmaninkatu 33 02720 Shopping Complex</p>
-                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
-                            <p class="mb-0 fw-semibold">yourinfo@gmail.com</p>
-                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
-                        </div>
-                        <div class="col-sm-6 mb-20">
-                            <h4>Queensland U.S.A</h4>
-                            <p class="mb-0 fw-semibold">35 Ocean Pde sollicitudin Protective Service Occupations</p>
-                            <p class="mb-0 fw-semibold">Open Closes 8:30PM</p>
-                            <p class="mb-0 fw-semibold">yourinfo@gmail.com</p>
-                            <p class="mb-0 fw-semibold">(1200)-0989-568-331</p>
+                        <div class="col-sm-12">
+                            <p class="mb-0 fw-semibold">Phone: <?php echo $global[0]['phone'] ?></p>
+                            <p class="mb-0 fw-semibold">Email: <?php echo $global[0]['email'] ?></p>
+                            <p class="mb-0 fw-semibold">Address: <?php echo $global[0]['address'] ?></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-30 mt-lg-0">
                     <div class="section-title mb-25">
                         <h2 class="sec-title1">Get In Touch</h2>
-                        <h3 class="sec-title2">Inform Us</h3><img src="assets/img/icons/sec-icon-1.png"
-                            alt="Section Image">
-                        <p class="fs-md mt-4 pt-1">Donec sed laoreet odio. Quisque sollicitudin vestibulum ultrices.
-                            Nulla pellentesque odio eget urna venenatis, ac maximus diam auctor. Phasellus aliquam neque
-                            non sodales lacinia.</p>
                     </div>
                     <form action="mail.php" method="POST" class="contact-form contact-form1 mb-30">
                         <div class="row g-4">
@@ -79,10 +54,10 @@
                     <p class="form-messages mt-20 mb-0"></p>
                 </div>
                 <div class="col-12 my-30">
-                    <div class="ratio ratio-21x9"><iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.1583088354!2d-74.11976389828038!3d40.697663748695746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1613227685674!5m2!1sen!2sbd"
-                            height="500" style="border:0; margin: 0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe></div>
+                    <div class="ratio ratio-21x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.749446522523!2d-115.12792100952241!3d36.14521765075119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c49a15d00001%3A0xd833d9ac831b921c!2s1810%20E%20Sahara%20Ave%20STE%20215%2C%20Las%20Vegas%2C%20NV%2089104%2C%20Hoa%20K%E1%BB%B3!5e0!3m2!1svi!2s!4v1685755399464!5m2!1svi!2s" 
+                            height="500" style="border:0;margin: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                 </div>
             </div>
         </div>

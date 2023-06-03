@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="<?php echo URL.'/styles' ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo URL.'/styles' ?>/assets/css/theme-color1.css">
     <link rel="stylesheet" id="themeColor" href="#">
+    <link href="<?php echo URL.'/styles/assets/img/default.png' ?>" rel="icon" />
 </head>
 
 <body class="home-6">
@@ -37,10 +38,14 @@
                     
                 </div>
                 <div class="col-sm-5 col-md-3 col-lg-4 text-center text-sm-end">
-                    <div class="social-header fs-xs"><span class="text-body2 fs-xs fw-semibold font-theme me-2">Social
-                            Network</span> <a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
-                                class="fab fa-twitter"></i></a> <a href="#"><i class="fal fa-basketball-ball"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a></div>
+                    <div class="social-header fs-xs">
+                        <span class="text-body2 fs-xs fw-semibold font-theme me-2">
+                            Social Network
+                        </span> 
+                        <a href="#"><i class="fab fa-facebook-f"></i></a> 
+                        <a href="#"><i class="fab fa-twitter"></i></a> 
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
