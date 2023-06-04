@@ -70,6 +70,34 @@ class Model {
                                     AND active = 1 AND position = 2 ORDER BY order_menu ASC");
         return $query->fetchAll();
     }
+
+    /**
+     * Display list category
+     */
+    function get_all_category(){
+        $query = $this->db->query("SELECT id, title, (SELECT COUNT(*) FROM tbl_product
+                                    WHERE tbl_product.cate_id = tbl_category.id) AS Total 
+                                    FROM tbl_category WHERE active = 1");
+        return $query->fetchAll();
+    }
+
+    /**
+     * Display best seller
+     */
+    function get_best_seller(){
+        $query = $this->db->query("SELECT id, title, code, create_at FROM tbl_product WHERE active = 1
+                                    ORDER BY RAND() LIMIT 0, 3");
+        return $query->fetchAll();
+    }
+
+    /**
+     * DIsplay image of product pass code of product
+     */
+    function get_image_product($code, $start, $end){
+        $query = $this->db->query("SELECT id, code, image, title FROM tbl_image_product WHERE code = '$code'
+                                    ORDER BY id ASC LIMIT $start, $end");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 

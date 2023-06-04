@@ -11,6 +11,8 @@ require 'libs/Database.php';
 require 'libs/Session.php';
 require 'libs/config/paths.php';
 require 'libs/config/database.php';
+// Image
+require('libs/Images/php_image_magician.php');
 $app = new Bootstrap();
 
 ?>

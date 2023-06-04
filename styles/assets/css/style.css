@@ -10409,7 +10409,7 @@ blockquote.wp-block-quote.has-text-align-right cite:before {
 }
 
 .star-rating:before {
-    content: "ï€…ï€…ï€…ï€…ï€…";
+    /*content: "ï€…ï€…ï€…ï€…ï€…";*/
     color: #e1e1e1;
     float: left;
     top: 0;
@@ -13505,7 +13505,7 @@ table.woocommerce-grouped-product-list.group_table td {
 }
 
 .space, .space-top {
-    padding-top: 130px
+    padding-top: 40px
 }
 
 .space, .space-bottom {

@@ -4,13 +4,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 
-RewriteRule ^(.*)-menu-([0-9]+).html$ index.php?name=menu&id=$2 [QSA,L]
+RewriteRule ^(.*)-menu-(.*).html$ index.php?url=menu&id=$2 [QSA,L]
 
 RewriteRule blogs.html$ index.php?url=blogs [QSA,L]
-RewriteRule ^(.*)-blogs-([0-9]+).html$ index.php?url=blogs/detail&id=$2 [QSA,L]
+RewriteRule ^(.*)-blogs-(.*).html$ index.php?url=blogs/detail&id=$2 [QSA,L]
 
-RewriteRule ^(.*)-category-([0-9]+).html$ index.php?url=product&id=$2 [QSA,L]
-RewriteRule ^(.*)-product-([0-9]+).html$ index.php?url=product/detail&id=$2 [QSA,L]
+RewriteRule ^(.*)-category-(.*).html$ index.php?url=product&id=$2 [QSA,L]
+RewriteRule ^(.*)-product-(.*).html$ index.php?url=product/detail&id=$2 [QSA,L]
 
 RewriteRule ^contact.html$ index.php?url=contact [QSA,L]
 
@@ -27,5 +27,7 @@ RewriteRule ^ad_del$ index.php?url=address/del [QSA,L]
 RewriteRule ^ad_change$ index.php?url=address/change [QSA,L]
 
 RewriteRule ^cart.html$ index.php?url=shopping [QSA,L]
+
+RewriteRule ^images.html$ index.php?url=convert_img [QSA,L]
 
 php_value display_errors on

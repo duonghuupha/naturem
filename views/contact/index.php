@@ -7,7 +7,7 @@ $global = $this->_Data->get_setting_global();
             <div class="breadcumb-content text-center">
                 <h1 class="breadcumb-title">Contact Us</h1>
                 <ul class="breadcumb-menu-style1 mx-auto">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="<?php echo URL ?>">Home</a></li>
                     <li class="active">Contact</li>
                 </ul>
             </div>
