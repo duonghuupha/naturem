@@ -145,6 +145,8 @@ $global = $this->_Data->get_setting_global();
     <script src="<?php echo URL.'/styles' ?>/assets/js/vsmenu.min.js"></script>
     <script src="<?php echo URL.'/styles' ?>/assets/js/ajax-mail.js"></script>
     <script src="<?php echo URL.'/styles' ?>/assets/js/main.js"></script>
+    <script src="<?php echo URL.'/styles' ?>/assets/js/jquery.toast.js"></script>
+    <script src="<?php echo URL.'/styles' ?>/scripts/shopping.js"></script>
 </body>
 
 </html>

@@ -121,10 +121,11 @@ $global = $this->_Data->get_setting_global();
                         <button type="button">
                             <i class="far fa-search"></i>
                         </button> 
-                        <a href="#">
+                        <a href="javascript:void(0)">
                             <i class="fal fa-heart"></i>
                         </a> 
-                        <button class="sideMenuToggler has-badge" type="button">
+                        <button class="sideMenuToggler has-badge" type="button"
+                        onclick="window.location.href='<?php echo URL.'/cart.html' ?>'">
                             <i class="fal fa-shopping-cart"></i>
                             <span class="badge"><?php echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0 ?></span>
                         </button>

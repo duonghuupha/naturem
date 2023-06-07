@@ -10057,7 +10057,6 @@ blockquote.wp-block-quote.has-text-align-right cite:before {
 }
 
 .woocommerce-message:before, .woocommerce-info:before {
-    content: "ïª";
     font-family: var(--icon-font);
     font-weight: 900;
     margin-right: 10px
@@ -10068,7 +10067,6 @@ blockquote.wp-block-quote.has-text-align-right cite:before {
 }
 
 .woocommerce-notices-wrapper .woocommerce-message:before {
-    content: "ï…Š";
     font-weight: 300
 }
 

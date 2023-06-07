@@ -66,11 +66,11 @@
                     <i class="far fa-bars"></i>
                 </button>
                 <div class="head-top-links text-body2 d-none d-lg-block">
-                    <a href="#" class="icon-btn has-badge bg3 me-3">
+                    <a href="javascript:void(0)" class="icon-btn has-badge bg3 me-3">
                         <i class="fal fa-heart"></i>
                         <span class="badge">0</span>
                     </a>
-                    <a href="<?php echo URL.'/cart.html' ?>" class="icon-btn has-badge bg2 me-4 sideMenuToggler">
+                    <a href="<?php echo URL.'/cart.html' ?>" class="icon-btn has-badge bg2 me-4">
                         <i class="fal fa-shopping-cart"></i>
                         <span class="badge"><?php echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0 ?></span>
                     </a> 
