@@ -98,6 +98,39 @@ class Model {
                                     ORDER BY id ASC LIMIT $start, $end");
         return $query->fetchAll();
     }
+
+    /**
+     * Display data block one
+     */
+    function get_block_one(){
+        $query = $this->db->query("SELECT * FROM tbl_block_1 WHERE id = 1");
+        return $query->fetchAll();
+    }
+
+    function get_category_via_block_one($array){
+        $query = $this->db->query("SELECT id, title, description, image FROM tbl_category 
+                                    WHERE active = 1 AND FIND_IN_SET(id, '$array')");
+        return $query->fetchAll();
+    }
+
+    /**
+     * Display data block three
+     */
+    function get_block_three(){
+        $query = $this->db->query("SELECT * FROM tbl_block_3 WHERE id = 1");
+        return $query->fetchAll();
+    }
+
+    function get_data_product($type, $array){
+        if($type == 1){
+            $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE active = 1
+                                    AND FIND_IN_SET(id, '$array') LIMIT 0, 8");
+        }else{
+            $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE active = 1
+                                    AND FIND_IN_SET(cate_id, '$array') LIMIT 0, 8");
+        }
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 
