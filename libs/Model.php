@@ -144,6 +144,20 @@ class Model {
         $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE id = $id");
         return $query->fetchAll();
     }
+
+    /**
+     * Display data block night
+     */
+    function get_block_night(){
+        $query = $this->db->query("SELECT * FROM tbl_block_9 WHERE id = 1");
+        return $query->fetchAll();
+    }
+
+    function get_data_blog_via_block($limit){
+        $query = $this->db->query("SELECT id, title, description, create_at, image FROM tbl_content
+                                    WHERE active = 1 ORDER BY id DESC LIMIT 0, $limit");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 

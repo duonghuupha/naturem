@@ -71,47 +71,42 @@ $img_src = $this->_Convert->convert_img('blogs/content/', $item[0]['image'], $wi
                         </div>
                     </div>
                     <div class="related-post-wrapper pt-40">
-                        <h2 class="inner-title1 h1">Relatetd <span class="text-theme">Post</span></h2>
+                        <h2 class="inner-title1 h1">
+                            Relatetd 
+                            <span class="text-theme">Post</span>
+                        </h2>
                         <div class="row text-center vs-carousel" data-slide-show="3" data-lg-slide-show="2">
+                            <?php
+                            foreach($this->random as $row_d){
+                                $width_d = 270; $height_d = 314;
+                                    $img_src_d = $this->_Convert->convert_img('blogs/content/', $row_d['image'], $width_d, $height_d, 1);
+                            ?>
                             <div class="col-lg-4">
                                 <div class="vs-blog blog-grid">
-                                    <div class="blog-img image-scale-hover"><a href="blog-details.html"><img
-                                                src="<?php echo URL.'/styles/' ?>assets/img/blog/related-post-1.jpg" alt="Blog Image"
-                                                class="w-100"></a></div>
+                                    <div class="blog-img image-scale-hover">
+                                        <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row_d['title'], true).'-blogs-'.base64_encode($row_d['id']).'.html' ?>">
+                                            <img src="<?php echo URL_IMAGE.'/blogs/content/'.$width_d.'x'.$height_d.'/'.$img_src_d ?>" 
+                                                alt="<?php echo $row_d['title'] ?>"
+                                                class="w-100">
+                                        </a>
+                                    </div>
                                     <div class="blog-content">
-                                        <h4 class="blog-title fw-semibold"><a href="blog-details.html">Keep Your Fruits
-                                                frash</a></h4>
-                                        <div class="blog-meta"><a href="blog-details.html">January 04, 2022</a> <a
-                                                href="blog-details.html">5 Views</a></div>
+                                        <h4 class="blog-title fw-semibold">
+                                            <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row_d['title'], true).'-blogs-'.base64_encode($row_d['id']).'.html' ?>">
+                                                <?php echo $row_d['title'] ?>
+                                            </a>
+                                        </h4>
+                                        <div class="blog-meta">
+                                            <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row_d['title'], true).'-blogs-'.base64_encode($row_d['id']).'.html' ?>">
+                                                <?php echo date("F d, Y", strtotime($row_d['create_at'])) ?>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="vs-blog blog-grid">
-                                    <div class="blog-img image-scale-hover"><a href="blog-details.html"><img
-                                                src="<?php echo URL.'/styles/' ?>assets/img/blog/related-post-2.jpg" alt="Blog Image"
-                                                class="w-100"></a></div>
-                                    <div class="blog-content">
-                                        <h4 class="blog-title fw-semibold"><a href="blog-details.html">Letrase traner
-                                                sheets</a></h4>
-                                        <div class="blog-meta"><a href="blog-details.html">July 04, 2022</a> <a
-                                                href="blog-details.html">22 Views</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="vs-blog blog-grid">
-                                    <div class="blog-img image-scale-hover"><a href="blog-details.html"><img
-                                                src="<?php echo URL.'/styles/' ?>assets/img/blog/related-post-3.jpg" alt="Blog Image"
-                                                class="w-100"></a></div>
-                                    <div class="blog-content">
-                                        <h4 class="blog-title fw-semibold"><a href="blog-details.html">Some cla lorem
-                                                ipsum</a></h4>
-                                        <div class="blog-meta"><a href="blog-details.html">Augest 04, 2022</a> <a
-                                                href="blog-details.html">12 Views</a></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -121,20 +116,27 @@ $img_src = $this->_Convert->convert_img('blogs/content/', $item[0]['image'], $wi
                             <h3 class="widget_title">Latest Posts</h3>
                             <div class="vs-widget-recent-post">
                                 <?php
-                                for($i = 1; $i <= 3; $i++){
+                                foreach($this->latest as $row_l){
+                                    $width_l = 100; $height_l = 73;
+                                    $img_src_l = $this->_Convert->convert_img('blogs/content/', $row_l['image'], $width_l, $height_l, 1);
                                 ?>
                                 <div class="recent-post d-flex align-items-center">
                                     <div class="media-img">
-                                        <img src="<?php echo URL.'/styles/' ?>assets/img/widget/recent-1.jpg" 
+                                        <img src="<?php echo URL_IMAGE.'/blogs/content/'.$width_l.'x'.$height_l.'/'.$img_src_l ?>" 
                                             width="100"
                                             height="73" 
-                                            alt="Recent Post Image">
+                                            alt="<?php echo $row_l['title'] ?>">
                                     </div>
                                     <div class="media-body pl-30">
                                         <h4 class="recent-post-title h5 mb-0">
-                                            <a href="blog.html">100% organic healthy</a>
+                                            <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row_l['title'], true).'-blogs-'.base64_encode($row_l['id']).'.html' ?>">
+                                                <?php echo $row_l['title'] ?>
+                                            </a>
                                         </h4>
-                                        <a href="#" class="text-theme fs-12">January 04, 2022</a>
+                                        <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row_l['title'], true).'-blogs-'.base64_encode($row_l['id']).'.html' ?>" 
+                                            class="text-theme fs-12">
+                                            <?php echo date("F d, Y", strtotime($row_l['create_at'])) ?>
+                                        </a>
                                     </div>
                                 </div>
                                 <?php
@@ -145,11 +147,14 @@ $img_src = $this->_Convert->convert_img('blogs/content/', $item[0]['image'], $wi
                         <div class="widget widget_tag_cloud">
                             <h3 class="widget_title">Popular Tags</h3>
                             <div class="tagcloud">
-                                <a href="blog.html">Healthy</a> 
-                                <a href="blog.html">Smoothie</a> 
-                                <a href="blog.html">Been</a> 
-                                <a href="blog.html">Juice</a> 
-                                <a href="blog.html">Vegetable</a>
+                                <?php
+                                $tags = explode(", ", $item[0]['tags']);
+                                foreach($tags as $row_tags){
+                                ?>
+                                <a href="<?php echo URL.'/blogs.html' ?>"><?php echo $row_tags ?></a>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </aside>

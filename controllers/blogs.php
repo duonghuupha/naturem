@@ -22,6 +22,10 @@ class Blogs extends Controller{
 
         $id = base64_decode($_REQUEST['id']);
         $this->view->jsonObj = $this->model->get_info_blogs($id);
+        $latest = $this->model->get_latest_post($id);
+        $this->view->latest = $latest;
+        $random = $this->model->get_random_post($id);
+        $this->view->random = $random;
 
         $this->view->render('blogs/detail');
         require('layouts/footer.php');

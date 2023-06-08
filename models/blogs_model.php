@@ -19,5 +19,17 @@ class Blogs_Model extends Model{
         $result['rows'] = $query->fetchAll();
         return $result;
     }
+
+    function get_latest_post($id){
+        $query = $this->db->query("SELECT id, title, image, create_at FROM tbl_content WHERE active = 1
+                                    AND id != $id ORDER BY id DESC LIMIT 0, 3");
+        return $query->fetchAll();
+    }
+
+    function get_random_post($id){
+        $query = $this->db->query("SELECT id, title, image, create_at FROM tbl_content WHERE active = 1
+                                    AND id != $id ORDER BY RAND() LIMIT 0, 3");
+        return $query->fetchAll();
+    }
 }
 ?>
