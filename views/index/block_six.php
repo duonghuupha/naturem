@@ -6,8 +6,7 @@
                     <div class="feature-icon">
                         <img src="<?php echo URL.'/styles/assets/img' ?>/icons/feature-icon-1-1.png" alt="icon">
                     </div>
-                    <h3 class="feature-title">Easy Returns</h3>
-                    <p class="feature-text">No Questions Asked</p>
+                    <h3 class="feature-title">International delevery</h3>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">

@@ -131,6 +131,19 @@ class Model {
         }
         return $query->fetchAll();
     }
+
+    /**
+     * Display data block five
+     */
+    function get_block_five(){
+        $query = $this->db->query("SELECT * FROM tbl_block_4 WHERE id = 1");
+        return $query->fetchAll();
+    }
+
+    function get_data_product_five($id){
+        $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE id = $id");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 
