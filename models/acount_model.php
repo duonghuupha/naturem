@@ -46,5 +46,11 @@ class Acount_Model extends Model{
         $query = $this->db->query("SELECT active FROM tbl_customer WHERE code = $code");
         return $query->fetchAll();
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+    function get_info_profile($id){
+        $query = $this->db->query("SELECT id, code, email, firstname, lastname, phone FROM tbl_customer
+                                    WHERE id = $id");
+        return $query->fetchAll();
+    }
 }
 ?>

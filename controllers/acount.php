@@ -133,6 +133,10 @@ class Acount extends Controller{
             exit;
         }else{
             require('layouts/global/header.php');
+
+            $jsonObj = $this->model->get_info_profile($_SESSION['data'][0]['id']);
+            $this->view->jsonObj = $jsonObj;
+
             $this->view->render('acount/profile');
             require('layouts/footer.php');
         }
