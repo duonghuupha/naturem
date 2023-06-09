@@ -20,8 +20,10 @@ RewriteRule ^register.html$ index.php?url=acount/register [QSA,L]
 RewriteRule ^log_action$ index.php?url=acount/do_login [QSA,L]
 RewriteRule ^reg_action$ index.php?url=acount/do_register [QSA,L]
 RewriteRule ^reg_notify.html$ index.php?url=acount/notify [QSA,L]
+RewriteRule ^active_account.html$ index.php?url=acount/active [QSA,L]
+RewriteRule ^logout.html$ index.php?url=acount/logout [QSA,L]
 
-RewriteRule ^manager_address$ index.php?url=address [QSA,L]
+RewriteRule ^manager_address.html$ index.php?url=address [QSA,L]
 RewriteRule ^ad_add$ index.php?url=address/add [QSA,L]
 RewriteRule ^ad_update$ index.php?url=address/update [QSA,L]
 RewriteRule ^ad_del$ index.php?url=address/del [QSA,L]
@@ -30,6 +32,6 @@ RewriteRule ^ad_change$ index.php?url=address/change [QSA,L]
 RewriteRule ^cart.html$ index.php?url=shopping [QSA,L]
 RewriteRule ^add_cart.html$ index.php?url=shopping/addcart [QSA,L]
 
-RewriteRule ^images.html$ index.php?url=convert_img [QSA,L]
+RewriteRule ^my_orders.html$ index.php?url=orders [QSA,L]
 
 php_value display_errors on

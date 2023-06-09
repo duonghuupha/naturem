@@ -1,3 +1,7 @@
+$(function(){
+    $('.overlay').hide();
+});
+
 function add_to_cart(idh){
     $.ajax({
         type: "POST",
@@ -26,28 +30,7 @@ function login(){
         return false;
     }else{
         if(validateEmail(email)){
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData($('#fm-login')[0]);
-            $.ajax({
-                url: baseUrl + '/log_action',  //server script to process data
-                type: 'POST',
-                xhr: function() {
-                    return xhr;
-                },
-                data: formData,
-                success: function(data){
-                    var result = JSON.parse(data);
-                    if(result.success == true){
-                        window.location.href = baseUrl;
-                    }else{
-                        show_message('error', result.msg);
-                        return false;
-                    }
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
+            save_form_reject('#fm-login', baseUrl + '/log_action', baseUrl);
         }else{
             show_message("error", "Email format is incorrect");
             return false;
@@ -65,28 +48,7 @@ function register(){
     });
     if(allRequired){
         if(validateEmail($('#email_register').val())){
-            var xhr = new XMLHttpRequest();
-            var formData = new FormData($('#fm-register')[0]);
-            $.ajax({
-                url: baseUrl + '/reg_action',  //server script to process data
-                type: 'POST',
-                xhr: function() {
-                    return xhr;
-                },
-                data: formData,
-                success: function(data){
-                    var result = JSON.parse(data);
-                    if(result.success == true){
-                        window.location.href = baseUrl+'/reg_notiify.html';
-                    }else{
-                        show_message('error', result.msg);
-                        return false;
-                    }
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
+            save_form_reject('#fm-register', baseUrl + '/reg_action', baseUrl + '/reg_notify.html');
         }else{
             show_message("error", "Email format is incorrect");
             return false;
@@ -127,4 +89,31 @@ function validate(evt) {
         theEvent.returnValue = false;
         if (theEvent.preventDefault) theEvent.preventDefault();
     }
+}
+
+function save_form_reject(id_form, url_post, url_reject){
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData($(id_form)[0]);
+    $('.overlay').show();
+    $.ajax({
+        url: url_post,  //server script to process data
+        type: 'POST',
+        xhr: function() {
+            return xhr;
+        },
+        data: formData,
+        success: function(data){
+            var result = JSON.parse(data);
+            if(result.success == true){
+                window.location.href = url_reject;
+                $('.overlay').hide();
+            }else{
+                show_message('error', result.msg);
+                $('.overlay').hide();
+            }
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
 }

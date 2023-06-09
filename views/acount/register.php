@@ -24,22 +24,12 @@
                             <input type="text" class="form-control" placeholder="Email" id="email_register" 
                             name="email_register" required="">
                         </div>
-                        <div class="form-group">
-                            <label>Firstname *</label> 
-                            <input type="text" class="form-control" placeholder="Firstname" id="firstname" 
-                            name="firstname" required="">
-                        </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label>Password *</label> 
                             <input type="password" class="form-control" placeholder="Password" id="password" 
                             name="password" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Lastname *</label> 
-                            <input type="text" class="form-control" placeholder="Lastname" id="lastname" 
-                            name="lastname" required="">
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -48,6 +38,22 @@
                             <input type="password" class="form-control" placeholder="Re-pass" id="re_pass" 
                             name="re_pass" required="">
                         </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Firstname *</label> 
+                            <input type="text" class="form-control" placeholder="Firstname" id="firstname" 
+                            name="firstname" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label>Lastname *</label> 
+                            <input type="text" class="form-control" placeholder="Lastname" id="lastname" 
+                            name="lastname" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label>Phone *</label> 
                             <input type="text" class="form-control" placeholder="Phone" onkeypress="validate(event)"

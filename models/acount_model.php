@@ -16,6 +16,12 @@ class Acount_Model extends Model{
         return $row[0]['Total'];
     }
 
+    function check_dupliObj_phone($phone){
+        $query = $this->db->query("SELECT COUNT(*) AS Total FROM tbl_customer WHERE phone = '$phone'");
+        $row = $query->fetchAll();
+        return $row[0]['Total'];
+    }
+
     function addObj_acount($data){
         $query = $this->insert("tbl_customer", $data);
         return $query;
@@ -24,6 +30,21 @@ class Acount_Model extends Model{
     function updateObj_acount($id, $data){
         $query = $this->update("tbl_customer", $data, "id = $id");
         return $query;
+    }
+
+    function updateObj_acount_pass_code($code, $data){
+        $query = $this->update("tbl_customer", $data, "code = $code");
+        return $query;
+    }
+
+    function delObj_acount_via_code($code){
+        $query = $this->delete("tbl_customer", "code = $code");
+        return $query;
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function check_exits_code_before_active($code){
+        $query = $this->db->query("SELECT active FROM tbl_customer WHERE code = $code");
+        return $query->fetchAll();
     }
 }
 ?>

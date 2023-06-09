@@ -35,6 +35,21 @@ $global = $this->_Data->get_setting_global();
                             echo "</li>";
                         }
                         ?>
+                        <?php
+                            if(isset($_SESSION['data'])){
+                            ?>
+                            <li class="menu-item-has-children">
+                                <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
+                                <ul class="sub-menu">
+                                    <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
+                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
+                                    <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
+                                </ul>
+                            </li>
+                            <?php
+                            }
+                            ?>
                     </ul>
                 </nav><button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
             </div>
@@ -111,6 +126,22 @@ $global = $this->_Data->get_setting_global();
                                     }
                                     
                                 echo "</li>";
+                            }
+                            ?>
+
+                            <?php
+                            if(isset($_SESSION['data'])){
+                            ?>
+                            <li class="menu-item-has-children">
+                                <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
+                                <ul class="sub-menu">
+                                    <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
+                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
+                                    <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
+                                </ul>
+                            </li>
+                            <?php
                             }
                             ?>
                         </ul>

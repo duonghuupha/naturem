@@ -138,7 +138,13 @@ $global = $this->_Data->get_setting_global();
                 </div>
             </div>
         </div>
-    </footer><a href="#" class="scrollToTop"><i class="far fa-angle-up"></i></a>
+    </footer>
+    <a href="#" class="scrollToTop"><i class="far fa-angle-up"></i></a>
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
     <script src="<?php echo URL.'/styles' ?>/assets/js/jquery-1.12.4.min.js"></script>
     <script src="<?php echo URL.'/styles' ?>/assets/js/app.min.js"></script>
     <script src="<?php echo URL.'/styles' ?>/assets/js/vscustom-carousel.min.js"></script>

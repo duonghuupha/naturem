@@ -13,6 +13,9 @@ require 'libs/config/paths.php';
 require 'libs/config/database.php';
 // Image
 require('libs/Images/php_image_magician.php');
+// Mail
+require 'libs/Mail/class.phpmailer.php';
+require 'libs/Mail/class.smtp.php';
 $app = new Bootstrap();
 
 ?>

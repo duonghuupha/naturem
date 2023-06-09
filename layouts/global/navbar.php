@@ -32,8 +32,25 @@
                             echo "</li>";
                         }
                         ?>
+                        <?php
+                            if(isset($_SESSION['data'])){
+                            ?>
+                            <li class="menu-item-has-children">
+                                <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
+                                <ul class="sub-menu">
+                                    <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
+                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
+                                    <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
+                                </ul>
+                            </li>
+                            <?php
+                            }
+                            ?>
                     </ul>
-                </nav><button class="vs-menu-toggle d-inline-block d-lg-none"><i class="far fa-bars"></i></button>
+                </nav><button class="vs-menu-toggle d-inline-block d-lg-none">
+                    <i class="far fa-bars"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -74,11 +91,17 @@
                         <i class="fal fa-shopping-cart"></i>
                         <span class="badge"><?php echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0 ?></span>
                     </a> 
+                    <?php
+                    if(!isset($_SESSION['data'])){
+                    ?>
                     <span class="icon-btn bg4"><i class="fal fa-user"></i></span>
                     <ul>
                         <li><a href="<?php echo URL.'/login.html' ?>">Login</a></li>
                         <li><a href="<?php echo URL.'/register.html' ?>">Register</a></li>
                     </ul>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -108,6 +131,21 @@
                                     }
                                     
                                 echo "</li>";
+                            }
+                            ?>
+                            <?php
+                            if(isset($_SESSION['data'])){
+                            ?>
+                            <li class="menu-item-has-children">
+                                <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
+                                <ul class="sub-menu">
+                                    <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
+                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
+                                    <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
+                                </ul>
+                            </li>
+                            <?php
                             }
                             ?>
                         </ul>
