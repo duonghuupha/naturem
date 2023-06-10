@@ -72,6 +72,15 @@ class Model {
     }
 
     /**
+     * Display total cart
+     */
+    function get_total_cart($cusid){
+        $query = $this->db->query("SELECT COUNT(*) AS Total FROM tbl_cart WHERE cus_id = $cusid");
+        $row = $query->fetchAll();
+        return $row[0]['Total'];
+    }
+
+    /**
      * Display list category
      */
     function get_all_category(){

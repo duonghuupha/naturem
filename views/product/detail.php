@@ -2,7 +2,7 @@
 $json = $this->jsonObj;
 $image_product = $this->_Data->get_image_product($json[0]['code'], 0, 99); 
 $width = 470; $height = 419;  $width_thumb = 149; $height_thumb = 118;
-$disabled = ($json[0]['stock'] != 0) ? '' : 'disabled=""';
+$disabled = ($json[0]['stock'] != 0 && $json[0]['price'] != 0) ? '' : 'disabled=""';
 ?>
     <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200"
         data-bg-src="<?php echo URL.'/styles/' ?>assets/img/breadcumb/breadcumb-img-1.jpg">
@@ -101,7 +101,7 @@ $disabled = ($json[0]['stock'] != 0) ? '' : 'disabled=""';
                                 </div>
                                 <div class="actions mb-4 pb-2">
                                     <div class="quantity style2 me-4">
-                                        <input type="number" class="qty-input" value="<?php echo ($json[0]['stock'] != 0) ? 1 : 0 ?>" min="1" max="<?php echo $json[0]['stock'] ?>" <?php echo $disabled ?>> 
+                                        <input type="number" id="qty-input" class="qty-input" value="<?php echo ($json[0]['stock'] != 0) ? 1 : 0 ?>" min="1" max="<?php echo $json[0]['stock'] ?>" <?php echo $disabled ?>> 
                                         <button class="quantity-minus qut-btn" <?php echo $disabled ?>>
                                             <i class="far fa-chevron-down"></i>
                                         </button> 
@@ -109,7 +109,16 @@ $disabled = ($json[0]['stock'] != 0) ? '' : 'disabled=""';
                                             <i class="far fa-chevron-up"></i>
                                         </button>
                                     </div>
-                                    <button type="button" class="vs-btn shadow-none" style="">Add To Cart</button>
+                                    <button type="button" class="vs-btn shadow-none"
+                                        <?php
+                                        if($json[0]['stock'] != 0 && $json[0]['price'] != 0){
+                                            echo 'onclick="add_to_cart('.$json[0]['id'].')"';
+                                        }else{
+                                            echo "";
+                                        }
+                                        ?>>
+                                        Add To Cart
+                                    </button>
                                 </div>
                                 <div class="product_meta">
                                     <span class="sku_wrapper">SKU: <span class="sku"><?php echo $json[0]['code'] ?></span></span> 

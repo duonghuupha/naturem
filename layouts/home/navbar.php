@@ -42,7 +42,7 @@ $global = $this->_Data->get_setting_global();
                                 <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
                                 <ul class="sub-menu">
                                     <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
-                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/manager_address.html' ?>">Address</a></li>
                                     <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
                                     <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
                                 </ul>
@@ -136,7 +136,7 @@ $global = $this->_Data->get_setting_global();
                                 <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
                                 <ul class="sub-menu">
                                     <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
-                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/manager_address.html' ?>">Address</a></li>
                                     <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
                                     <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
                                 </ul>
@@ -158,7 +158,7 @@ $global = $this->_Data->get_setting_global();
                         <button class="sideMenuToggler has-badge" type="button"
                         onclick="window.location.href='<?php echo URL.'/cart.html' ?>'">
                             <i class="fal fa-shopping-cart"></i>
-                            <span class="badge"><?php echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0 ?></span>
+                            <span class="badge"><?php echo (isset($_SESSION['data'])) ? $this->_Data->get_total_cart($_SESSION['data'][0]['id']) : 0 ?></span>
                         </button>
                     </div>
                 </div>

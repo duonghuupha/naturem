@@ -1,3 +1,6 @@
+<?php
+$jsonObj = $this->jsonObj;
+?>
     <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200"
         data-bg-src="<?php echo URL.'/styles/' ?>assets/img/breadcumb/breadcumb-img-1.jpg">
         <div class="container">
@@ -15,7 +18,7 @@
             <div class="woocommerce-notices-wrapper">
                 <div class="woocommerce-message">Shipping costs updated.</div>
             </div>
-            <form action="#" class="woocommerce-cart-form">
+            <form class="woocommerce-cart-form">
                 <table class="cart_table">
                     <thead>
                         <tr>
@@ -28,40 +31,64 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $total = 0;
+                        foreach($jsonObj as $row){
+                            $width = 91; $height = 92;
+                            $img_src = $this->_Convert->convert_img('product/'.$row['code_sp'].'/', $row['image'], $width, $height, 2);
+                            $total += ($row['price'] * $row['qty']);
+                        ?>
                         <tr class="cart_item">
                             <td data-title="Product">
-                                <a class="cart-productimage" href="#">
-                                    <img width="91" height="91" src="<?php echo URL.'/styles/' ?>assets/img/cart/cat-img-1.png" alt="Image">
+                                <a class="cart-productimage" href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-product-'.base64_encode($row['pro_id']).'.html' ?>">
+                                    <img width="91" 
+                                        height="91" 
+                                        src="<?php echo URL_IMAGE.'/product/'.$row['code_sp'].'/'.$width.'x'.$height.'/'.$img_src ?>" 
+                                        alt="<?php echo $row['title'] ?>">
                                 </a>
                             </td>
                             <td data-title="Name">
-                                <a class="cart-productname" href="#">Parmesan Vegetable</a>
+                                <a class="cart-productname" href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-product-'.base64_encode($row['pro_id']).'.html' ?>">
+                                    <?php echo $row['title'] ?>
+                                </a>
                             </td>
                             <td data-title="Price">
-                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                                <span class="amount">
+                                    <bdi><span>$</span><?php echo $row['price'] ?></bdi></span>
                             </td>
                             <td data-title="Quantity">
                                 <div class="quantity">
                                     <button class="quantity-minus qut-btn">
                                         <i class="far fa-minus"></i>
                                     </button> 
-                                    <input type="number" class="qty-input" value="1" min="1" max="99"> 
+                                    <input type="number" class="qty-input" value="<?php echo $row['qty'] ?>" min="1" max="<?php echo $row['stock'] ?>"
+                                    id="qty-input-<?php echo $row['id'] ?>" name="qty-input-<?php echo $row['id'] ?>"> 
                                     <button class="quantity-plus qut-btn">
                                         <i class="far fa-plus"></i>
                                     </button>
                                 </div>
                             </td>
                             <td data-title="Total">
-                                <span class="amount"><bdi><span>$</span>18</bdi></span>
+                                <span class="amount">
+                                    <bdi><span>$</span><?php echo number_format($row['price'] * $row['qty']) ?></bdi>
+                                </span>
                             </td>
                             <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
+                                <a href="javascript:void(0)" class="remove" onclick="update_from_cart(<?php echo $row['id'] ?>)">
+                                    <i class="fal fa-sync"></i>
+                                </a>
+                                &nbsp;
+                                <a href="javascript:void(0)" class="remove" onclick="del_from_cart(<?php echo $row['id'] ?>)">
+                                    <i class="fal fa-trash-alt"></i>
+                                </a>
                             </td>
                         </tr>
+                        <?php
+                        }
+                        ?>
                         <tr>
                             <td colspan="6" class="actions">
-                                <button type="submit" class="vs-btn style2 rounded-1 shadow-none">Update cart</button> 
-                                <a href="#" class="vs-btn rounded-1 shadow-none">Continue Shopping</a>
+                                <a href="<?php echo URL ?>" class="vs-btn rounded-1 shadow-none">Continue Shopping</a>
                             </td>
                         </tr>
                     </tbody>
@@ -72,11 +99,11 @@
                     <h2 class="h4 summary-title">
                         Cart Totals: 
                         <strong>
-                            <span class="amount"><bdi><span>$</span>47</bdi></span>
+                            <span class="amount"><bdi><span>$</span><?php echo number_format($total) ?></bdi></span>
                         </strong>
                     </h2>
                     <div class="wc-proceed-to-checkout mb-30">
-                        <a href="#" class="vs-btn rounded-1 shadow-none">
+                        <a href="<?php echo URL.'/checkout.html' ?>" class="vs-btn rounded-1 shadow-none">
                             Proceed to checkout
                         </a>
                     </div>

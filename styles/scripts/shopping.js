@@ -3,25 +3,24 @@ $(function(){
 });
 
 function add_to_cart(idh){
-    $.ajax({
-        type: "POST",
-        url: baseUrl + '/',
-        data: data_str, // serializes the form's elements.
-        success: function(data){
-            var result = JSON.parse(data);
-            if(result.success == true){
-                $('.overlay').hide();
-                show_message('success', result.msg);
-                $(id_div).load(url_content);
-            }else{
-                $('.overlay').hide();
-                show_message('error', result.msg);
-                return false;
-            }
-        }
-    });
+    if($('#qty-input').length != 0){
+        var data_str = "id="+btoa(idh)+'&qty='+$('#qty-input').val();
+    }else{
+        var data_str = "id="+btoa(idh)+'&qty=1';
+    }
+    save_no_form_reject(data_str, baseUrl + '/add_cart.html', window.location.href);
 }
 
+function update_from_cart(idh){
+    var qty = $('#qty-input-'+idh).val();
+    var data_str = "id="+btoa(idh)+'&qty='+qty;
+    save_no_form_reject(data_str, baseUrl + '/update_cart.html', window.location.href);
+}
+
+function del_from_cart(idh){
+    var data_str = "id="+btoa(idh);
+    save_no_form_reject(data_str, baseUrl + '/del_cart.html', window.location.href);
+}
 /********************************************************************************** */
 function login(){
     var email = $('#email_login').val(), password = $('#password').val();
@@ -115,5 +114,25 @@ function save_form_reject(id_form, url_post, url_reject){
         cache: false,
         contentType: false,
         processData: false
+    });
+}
+
+function save_no_form_reject(data_str, url_post, url_reject){
+    $('.overlay').show();
+    $.ajax({
+        type: "POST",
+        url: url_post,
+        data: data_str, // serializes the form's elements.
+        success: function(data){
+            var result = JSON.parse(data);
+            if(result.success == true){
+                $('.overlay').hide();
+                window.location.href = url_reject;
+            }else{
+                $('.overlay').hide();
+                show_message('error', result.msg);
+                return false;
+            }
+        }
     });
 }

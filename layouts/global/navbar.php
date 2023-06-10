@@ -39,7 +39,7 @@
                                 <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
                                 <ul class="sub-menu">
                                     <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
-                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/manager_address.html' ?>">Address</a></li>
                                     <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
                                     <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
                                 </ul>
@@ -89,7 +89,7 @@
                     </a>
                     <a href="<?php echo URL.'/cart.html' ?>" class="icon-btn has-badge bg2 me-4">
                         <i class="fal fa-shopping-cart"></i>
-                        <span class="badge"><?php echo (isset($_SESSION['cart'])) ? count($_SESSION['cart']) : 0 ?></span>
+                        <span class="badge"><?php echo (isset($_SESSION['data'])) ? $this->_Data->get_total_cart($_SESSION['data'][0]['id']) : 0 ?></span>
                     </a> 
                     <?php
                     if(!isset($_SESSION['data'])){
@@ -140,7 +140,7 @@
                                 <a href="javascript:void(0)" style="color:green">Hi, <?php echo $_SESSION['data'][0]['lastname'] ?></a>
                                 <ul class="sub-menu">
                                     <li><a href="<?php echo URL.'/profile.html' ?>">Profile</a></li>
-                                    <li><a href="<?php echo URL.'/manager_addresss.html' ?>">Address</a></li>
+                                    <li><a href="<?php echo URL.'/manager_address.html' ?>">Address</a></li>
                                     <li><a href="<?php echo URL.'/my_orders.html' ?>">My orders</a></li>
                                     <li><a href="<?php echo URL.'/logout.html' ?>">Logout</a></li>
                                 </ul>
