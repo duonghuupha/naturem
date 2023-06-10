@@ -167,6 +167,14 @@ class Model {
                                     WHERE active = 1 ORDER BY id DESC LIMIT 0, $limit");
         return $query->fetchAll();
     }
+
+    /**
+     * Display data block seven
+     */
+    function get_block_sevent(){
+        $query = $this->db->query("SELECT * FROM tbl_block_7 WHERE id = 1");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 

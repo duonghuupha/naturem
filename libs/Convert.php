@@ -187,9 +187,5 @@ class Convert{
         }
         return $filename;
     }
-
-    function send_mail($email, $msg, $subject){
-
-    }
 }
 ?>
