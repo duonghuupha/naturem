@@ -57,6 +57,95 @@ function register(){
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function load_info_add(){
+    var zip_code = $('#postcode').val();
+    if(zip_code.length != 5){
+        show_message("error", "Zip code is not in the correct format");
+    }else{
+        $('.overlay').show();
+        $.ajax({
+            type: "POST",
+            url: baseUrl + '/check',
+            data: "postcode="+btoa(zip_code), // serializes the form's elements.
+            success: function(data){
+                var result = JSON.parse(data);
+                if(result.success == true){
+                    $('.overlay').hide();
+                    show_message('success', result.msg);
+                    var item = result.results[zip_code];
+                    //console.log(item[0].city);
+                    $('#firstname, #lastname, #phone, #city, #address').attr('readonly', false);
+                    $('#state').val(item[0].state); $('#city').val(item[0].city);
+                    $('#state_code').val(item[0].state_code);
+                }else{
+                    $('.overlay').hide();
+                    show_message('error', result.msg);
+                    return false;
+                }
+            }
+        });
+    }
+}
+
+function save_address(){
+    var required = $('#fm-add-address input, #fm-add-address textarea, #fm-add-address select').filter('[required]:visible');
+    var allRequired = true;
+    required.each(function(){
+        if($(this).val() == ''){
+            allRequired = false;
+        }
+    });
+    if(allRequired){
+        $('#comment').val($('#note').val());
+        save_form_reject('#fm-add-address', baseUrl + '/action_add', baseUrl + '/manager_address.html');
+    }else{
+        show_message("error", "Not filled in enough information");
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function checkout(){
+    var required = $('#fm-order input, #fm-order textarea, #fm-order select').filter('[required]:visible');
+    var allRequired = true;
+    required.each(function(){
+        if($(this).val() == ''){
+            allRequired = false;
+        }
+    });
+    if(allRequired){
+        //save_form_reject('#fm-order', baseUrl + '/action_check.html', baseUrl + '/notify_check.html');
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData($('#fm-order')[0]);
+        $('.overlay').show();
+        $.ajax({
+            url: baseUrl + '/action_check.html',  //server script to process data
+            type: 'POST',
+            xhr: function() {
+                return xhr;
+            },
+            data: formData,
+            success: function(data){
+                var result = JSON.parse(data);
+                if(result.success == true){
+                    //window.location.href = url_reject;
+                    //$('.overlay').hide();
+                    window.location.href = baseUrl + '/payment?data='+btoa(result.data);
+                }else{
+                    show_message('error', result.msg);
+                    $('.overlay').hide();
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    }else{
+        show_message("error", "Not filled in enough information");
+    }
+}
+
 /********************************** */
 function show_message(icon, msg){
     $.toast({

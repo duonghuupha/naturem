@@ -175,6 +175,11 @@ class Model {
         $query = $this->db->query("SELECT * FROM tbl_block_7 WHERE id = 1");
         return $query->fetchAll();
     }
+
+    function get_detail_address($id){
+        $query = $this->db->query("SELECT * FROM tbl_address WHERE id = $id");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 

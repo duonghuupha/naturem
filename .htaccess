@@ -25,9 +25,12 @@ RewriteRule ^logout.html$ index.php?url=acount/logout [QSA,L]
 
 RewriteRule ^manager_address.html$ index.php?url=address [QSA,L]
 RewriteRule ^ad_add$ index.php?url=address/add [QSA,L]
+RewriteRule ^action_add$ index.php?url=address/do_add [QSA,L]
 RewriteRule ^ad_update$ index.php?url=address/update [QSA,L]
+RewriteRule ^action_update$ index.php?url=address/do_update [QSA,L]
 RewriteRule ^ad_del$ index.php?url=address/del [QSA,L]
 RewriteRule ^ad_change$ index.php?url=address/change [QSA,L]
+RewriteRule ^check$ index.php?url=address/check_code [QSA,L]
 
 RewriteRule ^cart.html$ index.php?url=shopping [QSA,L]
 RewriteRule ^add_cart.html$ index.php?url=shopping/addcart [QSA,L]
@@ -35,6 +38,9 @@ RewriteRule ^update_cart.html$ index.php?url=shopping/updatecart [QSA,L]
 RewriteRule ^del_cart.html$ index.php?url=shopping/delcart [QSA,L]
 
 RewriteRule ^checkout.html$ index.php?url=checkout [QSA,L]
+RewriteRule ^action_check.html$ index.php?url=checkout/action [QSA,L]
+RewriteRule ^notify_check.html$ index.php?url=checkout/notify [QSA,L]
+RewriteRule ^payment$ index.php?url=checkout/payment [QSA,L]
 
 RewriteRule ^my_orders.html$ index.php?url=orders [QSA,L]
 

@@ -16,6 +16,8 @@ require('libs/Images/php_image_magician.php');
 // Mail
 require 'libs/Mail/class.phpmailer.php';
 require 'libs/Mail/class.smtp.php';
+// payment
+require 'libs/payment/autoload.php';
 $app = new Bootstrap();
 
 ?>

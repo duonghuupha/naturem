@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/advent-pro');
 @import url('https://fonts.cdnfonts.com/css/lato');
 @import url('https://fonts.cdnfonts.com/css/amatic-sc-2');
+
 :root {
     --title-color: #000000;
     --body-color: #858585;
@@ -14497,6 +14498,7 @@ table.woocommerce-grouped-product-list.group_table td {
         left: 3%
     }
 }
+
 /*********************************************/
 .overlay {
     left: 0;
@@ -14537,6 +14539,48 @@ table.woocommerce-grouped-product-list.group_table td {
 }
 
 @keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.w200 {
+    width: 200px !important;
+}
+
+.w250 {
+    width: 250px !important;
+}
+
+.loader_payment {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-right: 16px solid green;
+    border-bottom: 16px solid red;
+    border-left: 16px solid pink;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin:0 auto;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
     100% {
         transform: rotate(360deg);
     }

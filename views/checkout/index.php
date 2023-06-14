@@ -1,0 +1,225 @@
+    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200"
+        data-bg-src="<?php echo URL.'/styles/' ?>assets/img/breadcumb/breadcumb-img-1.jpg">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Check out</h1>
+                <ul class="breadcumb-menu-style1 mx-auto">
+                    <li><a href="<?php echo URL ?>">Home</a></li>
+                    <li class="active">Check out</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="vs-checkout-wrapper space-top space-md-bottom">
+        <div class="container">
+            <form action="#" class="woocommerce-checkout mt-40">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="h4">Billing Details</h2>
+                        <div class="row gx-2">
+                            <?php
+                            if(count($this->address) > 0){
+                                $z = 0; $add_id = 0;
+                                foreach($this->address as $row_add){
+                                    $z++;
+                                    if($row_add['default_add'] == 1){
+                                        $add_id = $row_add['id'];
+                                        echo "
+                                        <span>".$row_add['firstname']." ".$row_add['lastname']."</span>
+                                        <span>".$row_add['phone']."</span>
+                                        <span>".$row_add['address']."</span>
+                                        <span>".$row_add['city']."</span>
+                                        <span>".$row_add['state']." - ".$row_add['code_state']."</span>
+                                        <span>".$row_add['postcode']."</span>
+                                        ";
+                                    }else{
+                                        if($z == 1){
+                                            $add_id = $row_add['id'];
+                                            echo "
+                                            <span>".$row_add['firstname']." ".$row_add['lastname']."</span>
+                                            <span>".$row_add['phone']."</span>
+                                            <span>".$row_add['address']."</span>
+                                            <span>".$row_add['city']."</span>
+                                            <span>".$row_add['state']." - ".$row_add['code_state']."</span>
+                                            <span>".$row_add['postcode']."</span>
+                                            ";
+                                        }
+                                    }
+                                }
+                            ?>
+                            <button type="button" class="vs-btn shadow-none w250" onclick="">
+                                <i class="fa fa-sync"></i>
+                                Change Address
+                            </button>
+                            <?php
+                            }else{
+                                $add_id = 0;
+                            ?>
+                            <button type="button" class="vs-btn shadow-none w200" onclick="window.location.href='<?php echo URL.'/ad_add' ?>'">
+                                <i class="fa fa-plus"></i>
+                                Add Address
+                            </button>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-12 form-group">
+                            <label>Other Note</label> 
+                            <textarea cols="20" rows="5" class="form-control" id="note" name="note"
+                                placeholder="Notes about your order, e.g. special notes for delivery."
+                                style="resize:none"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <h4 class="mt-4 pt-lg-2">Your Order</h4>
+            <form class="woocommerce-cart-form">
+                <table class="cart_table mb-20">
+                    <thead>
+                        <tr>
+                            <th class="cart-col-image">Image</th>
+                            <th class="cart-col-productname">Product Name</th>
+                            <th class="cart-col-price">Price</th>
+                            <th class="cart-col-quantity">Quantity</th>
+                            <th class="cart-col-total">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $total = 0;
+                        foreach($this->json_cart as $row_cart){
+                            $price = $row_cart['qty'] * $row_cart['price'];
+                            $total += $price;
+                            $width = 91; $height = 92;
+                            $img_src = $this->_Convert->convert_img('product/'.$row_cart['code_sp'].'/', $row_cart['image'], $width, $height, 2);
+                        ?>
+                        <tr class="cart_item">
+                            <td data-title="Product">
+                                <a class="cart-productimage" href="javascript:void(0)">
+                                    <img width="91" 
+                                        height="91"
+                                        src="<?php echo URL_IMAGE.'/product/'.$row_cart['code_sp'].'/'.$width.'x'.$height.'/'.$img_src ?>" 
+                                        alt="<?php echo $row_cart['title'] ?>">
+                                </a>
+                            </td>
+                            <td data-title="Name">
+                                <a class="cart-productname" href="javascript:void(0)">
+                                    <?php echo $row_cart['title'] ?>
+                                </a>
+                            </td>
+                            <td data-title="Price">
+                                <span class="amount">
+                                    <bdi><span>$</span><?php echo $row_cart['price'] ?></bdi>
+                                </span>
+                            </td>
+                            <td data-title="Quantity">
+                                <strong class="product-quantity"><?php echo $row_cart['qty'] ?></strong>
+                            </td>
+                            <td data-title="Total">
+                                <span class="amount">
+                                    <bdi><span>$</span><?php echo $price ?></bdi>
+                                </span>
+                            </td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </form>
+            <div class="border ps-2 py-2 border-light">
+                <div class="row justify-content-lg-end">
+                    <div class="col-md-8 col-lg-6 col-xl-4">
+                        <table class="checkout-ordertable mb-0">
+                            <tbody>
+                                <tr class="cart-subtotal">
+                                    <th>Cart Subtotal</th>
+                                    <td>
+                                        <span class="amount">
+                                            <bdi><span>$</span><?php echo $total ?></bdi>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!--<tr class="woocommerce-shipping-totals shipping">
+                                    <th>Shipping and Handling</th>
+                                    <td data-title="Shipping">
+                                        <ul class="woocommerce-shipping-methods list-unstyled">
+                                            <li><input type="checkbox" name="shipping_method" class="shipping_method"
+                                                    checked="checked"> <label>Flat rate</label></li>
+                                        </ul>
+                                    </td>
+                                </tr>-->
+                                <tr class="order-total">
+                                    <th>Order Total</th>
+                                    <td>
+                                        <strong>
+                                            <span class="amount">
+                                                <bdi><span>$</span><?php echo $total ?></bdi>
+                                            </span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10 pt-lg-5 mb-30">
+                <div class="woocommerce-checkout-payment">
+                    <div class="woocommerce-notices-wrapper">
+                        <div class="woocommerce-message">Payment Infomation.</div>
+                    </div>
+                    <form id="fm-order" class="woocommerce-form-login">
+                        <input id="addid" name="addid" type="hidden" value="<?php echo $add_id ?>"/>
+                        <input id="total_cart" name="total_cart" type="hidden" value="<?php echo $total ?>"/>
+                        <input id="comment" name="comment" type="hidden"/>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Card Number *</label> 
+                                    <input type="text" class="form-control" placeholder="Card Number" id="cardnumber" 
+                                    name="cardnumber" required="" onkeypress="validate(event)">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Expiration Month *</label> 
+                                    <select class="form-control" id="month" name="month" required="">
+                                        <?php
+                                        for($i = 1; $i <= 12; $i++){
+                                            echo "<option value='".$i."'>".$i."</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Expiration Year *</label> 
+                                    <select class="form-control" id="year" name="year" required="">
+                                        <?php
+                                        for($j = 2023; $j <= 2040; $j++){
+                                            echo "<option value='".$j."'>".$j."</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>CVV *</label> 
+                                    <input type="password" class="form-control" placeholder="CVV" id="cvv" 
+                                    name="cvv" required="" onkeypress="validate(event)" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-row place-order">
+                        <button type="button" class="vs-btn" onclick="checkout()">Place order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
