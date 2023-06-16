@@ -52,5 +52,12 @@ class Acount_Model extends Model{
                                     WHERE id = $id");
         return $query->fetchAll();
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function check_current_pass($pass, $cusid){
+        $query = $this->db->query("SELECT COUNT(*) AS Total FROM tbl_customer WHERE id = $cusid
+                                    AND password = '$pass'");
+        $row = $query->fetchAll();
+        return $row[0]['Total'];
+    }
 }
 ?>

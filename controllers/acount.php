@@ -141,6 +141,100 @@ class Acount extends Controller{
             require('layouts/footer.php');
         }
     }
+
+    function update(){
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if($logged == false){
+            session_start();
+            session_destroy();
+            header ('Location: '.URL.'/login.html');
+            exit;
+        }else{
+            require('layouts/global/header.php');
+
+            $jsonObj = $this->model->get_info_profile($_SESSION['data'][0]['id']);
+            $this->view->jsonObj = $jsonObj;
+
+            $this->view->render('acount/update');
+            require('layouts/footer.php');
+        }
+    }
+
+    function do_update(){
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if($logged == false){
+            session_start();
+            session_destroy();
+            header ('Location: '.URL.'/login.html');
+            exit;
+        }else{
+            $firstname = $_REQUEST['firstname']; $lastname = $_REQUEST['lastname'];
+            $phone = $_REQUEST['phone'];
+            $data = array("firstname" => $firstname, "lastname" => $lastname, "phone" => $phone);
+            $temp = $this->model->updateObj_acount($_SESSION['data'][0]['id'], $data);
+            if($temp){
+                $jsonObj['msg'] = "Record data successfully";
+                $jsonObj['success'] = true;
+                $this->view->jsonObj = json_encode($jsonObj);
+            }else{
+                $jsonObj['msg'] = "Data write failed";
+                $jsonObj['success'] = false;
+                $this->view->jsonObj = json_encode($jsonObj);
+            }
+        }
+        $this->view->render("acount/do_update");
+    }
+
+    function change_pass(){
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if($logged == false){
+            session_start();
+            session_destroy();
+            header ('Location: '.URL.'/login.html');
+            exit;
+        }else{
+            require('layouts/global/header.php');
+            $this->view->render('acount/change_pass');
+            require('layouts/footer.php');
+        }
+    }
+
+    function do_pass(){
+        $cupass = $_REQUEST['cu_pass']; $pass = $_REQUEST['pass']; $repass = $_REQUEST['re_pass'];
+        if($this->model->check_current_pass(sha1($cupass), $_SESSION['data'][0]['id']) == 0){
+            $jsonObj['msg'] = "Current password is incorrect";
+            $jsonObj['success'] = false;
+            $this->view->jsonObj = json_encode($jsonObj);
+        }else{
+            if(sha1($cupass) == sha1($pass)){
+                $jsonObj['msg'] = "The new password must not be the same as the old password";
+                $jsonObj['success'] = false;
+                $this->view->jsonObj = json_encode($jsonObj);
+            }else{
+                if(sha1($pass) != sha1($repass)){
+                    $jsonObj['msg'] = "Password was wrong";
+                    $jsonObj['success'] = false;
+                    $this->view->jsonObj = json_encode($jsonObj);
+                }else{
+                    $data = array("password" => sha1($pass));
+                    $temp = $this->model->updateObj_acount($_SESSION['data'][0]['id'], $data);
+                    if($temp){
+                        $jsonObj['msg'] = "Change password successfully";
+                        $jsonObj['success'] = true;
+                        $this->view->jsonObj = json_encode($jsonObj);
+                    }else{
+                        $jsonObj['msg'] = "Password change failed";
+                        $jsonObj['success'] = false;
+                        $this->view->jsonObj = json_encode($jsonObj);
+                    }   
+                }
+            }
+        }
+        $this->view->render("acount/do_pass");
+    }
 /////////////////////////////////////////////////////////////////////////////////////////////////
     function send_mail($code, $email){
         // gui email xac nhan cap nhat thong tin

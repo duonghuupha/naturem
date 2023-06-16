@@ -57,6 +57,36 @@ function register(){
     }
 }
 
+function update_acount(){
+    var required = $('#fm-update input, #fm-update textarea, #fm-update select').filter('[required]:visible');
+    var allRequired = true;
+    required.each(function(){
+        if($(this).val() == ''){
+            allRequired = false;
+        }
+    });
+    if(allRequired){
+        save_form_reject('#fm-update', baseUrl + '/upd_action', baseUrl + '/profile.html');
+    }else{
+        show_message("error", "Not filled in enough information");
+    }
+}
+
+
+function change_pass(){
+    var required = $('#fm-change-pass input, #fm-change-pass textarea, #fm-change-pass select').filter('[required]:visible');
+    var allRequired = true;
+    required.each(function(){
+        if($(this).val() == ''){
+            allRequired = false;
+        }
+    });
+    if(allRequired){
+        save_form_reject('#fm-change-pass', baseUrl + '/udp_pass', baseUrl + '/profile.html');
+    }else{
+        show_message("error", "Not filled in enough information");
+    }
+}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function load_info_add(){

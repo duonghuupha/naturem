@@ -46,7 +46,7 @@ $item = $this->jsonObj;
                 </div>
                 <div class="col-lg-12 text-center">
                     <div class="form-group">
-                        <button type="button" class="vs-btn shadow-none">Update</button>
+                        <button type="button" class="vs-btn shadow-none" onclick="window.location.href='<?php echo URL.'/update-account.html' ?>'">Update</button>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
