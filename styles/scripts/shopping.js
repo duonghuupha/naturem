@@ -128,11 +128,28 @@ function save_address(){
         }
     });
     if(allRequired){
-        $('#comment').val($('#note').val());
-        save_form_reject('#fm-add-address', baseUrl + '/action_add', baseUrl + '/manager_address.html');
+        if($('#id_add').length == 0){
+            save_form_reject('#fm-add-address', baseUrl + '/action_add', baseUrl + '/manager_address.html');
+        }else{
+            save_form_reject('#fm-add-address', baseUrl + '/action_update', baseUrl + '/manager_address.html');
+        }
     }else{
         show_message("error", "Not filled in enough information");
     }
+}
+
+function edit_address(idh){
+    window.location.href = baseUrl + '/ad_update?id='+btoa(idh);
+}
+
+function del_address(idh){
+    var data_str = "id="+btoa(idh);
+    save_no_form_reject(data_str, baseUrl + '/ad_del', baseUrl +'/manager_address.html');
+}
+
+function change_default(idh){
+    var data_str = "id="+btoa(idh);
+    save_no_form_reject(data_str, baseUrl + '/ad_change', baseUrl +'/manager_address.html');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -145,7 +162,7 @@ function checkout(){
         }
     });
     if(allRequired){
-        //save_form_reject('#fm-order', baseUrl + '/action_check.html', baseUrl + '/notify_check.html');
+        $('#comment').val($('#note').val());
         var xhr = new XMLHttpRequest();
         var formData = new FormData($('#fm-order')[0]);
         $('.overlay').show();

@@ -47,12 +47,12 @@
                                 <?php
                                 }
                                 ?>
-                                <a href="javascript:void(0)" class="remove" onclick="edit_default(<?php echo $row['id'] ?>)"
+                                <a href="javascript:void(0)" class="remove" onclick="edit_address(<?php echo $row['id'] ?>)"
                                 title="Edit">
                                     <i class="fal fa-pencil"></i>
                                 </a>
                                 &nbsp;
-                                <a href="javascript:void(0)" class="remove" onclick="del_from_cart(<?php echo $row['id'] ?>)"
+                                <a href="javascript:void(0)" class="remove" onclick="del_address(<?php echo $row['id'] ?>)"
                                 title="Del">
                                     <i class="fal fa-trash-alt"></i>
                                 </a>
