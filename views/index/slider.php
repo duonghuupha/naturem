@@ -92,11 +92,11 @@
                 data-ls="offsetyin:200; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hovereasingin:easeOutQuint; hoverbgcolor:#ffffff; hovercolor:#76a713;">START
                 SHOPPING
             </span>
-            <p style='top:420px; left:1760px; text-align:center; font-weight:700; background-size:inherit; background-position:inherit; font-size:16px; font-family:"Lato", sans-serif; line-height:40px; width:40px; height:40px; border-radius:100%; color:#ffffff; background-color:#76a713; z-index:1000;'
+            <!--<p style='top:420px; left:1760px; text-align:center; font-weight:700; background-size:inherit; background-position:inherit; font-size:16px; font-family:"Lato", sans-serif; line-height:40px; width:40px; height:40px; border-radius:100%; color:#ffffff; background-color:#76a713; z-index:1000;'
                 class="ls-l ls-hide-tablet ls-hide-phone"
                 data-ls="hover:true; hoverbgcolor:#76a713; hovercolor:#ffffff;">
                 1
-            </p>
+            </p>-->
             <a class="ls-l ls-hide-tablet ls-hide-phone" 
                 href="#1" 
                 target="_self"
@@ -142,61 +142,6 @@
                     5
                 </p>
             </a>
-            <img width="126" 
-                height="151" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-4.png"
-                class="ls-l" 
-                alt="image"
-                style="top:-300px; left:642px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:15000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
-            <img width="114" 
-                height="97" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-1.png"
-                class="ls-l" 
-                alt="leaf"
-                style="top:-300px; left:1500px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:2000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
-            <img width="60" 
-                height="66" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-3.png" 
-                class="ls-l"
-                alt="image" 
-                style="top:-300px; left:50px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:5000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
-            <img width="115" 
-                height="96" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-2.png"
-                class="ls-l" 
-                alt="leaf"
-                style="top:-300px; left:1200px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:4000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
-            <img width="60" 
-                height="66" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-3.png" 
-                class="ls-l"
-                alt="image" 
-                style="top:-300px; left:489px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:6000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:3000; static:forever;">
-            <img width="114" 
-                height="97" src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-1.png"
-                class="ls-l" 
-                alt="leaf"
-                style="top:-300px; left:1200px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:7000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:3000; static:forever;">
-            <img width="115" 
-                height="96" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-2.png"
-                class="ls-l" 
-                alt="leaf"
-                style="top:-300px; left:200px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:10000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:4000; static:forever;">
-            <img width="115" 
-                height="96" 
-                src="<?php echo URL.'/styles/assets/img' ?>/hero/hero-6-leaf-2.png"
-                class="ls-l" 
-                alt="leaf"
-                style="top:-300px; left:800px; background-size:inherit; background-position:inherit;"
-                data-ls="offsetyin:top; durationin:1500; delayin:8000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:4000; static:forever;">
         </div>
     </div>
 </div>
