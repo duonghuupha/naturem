@@ -10,7 +10,7 @@ $img_src = $this->_Convert->convert_img('product/'.$json[0]['code'].'/', $image_
                 <img src="<?php echo URL.'/styles/assets/img' ?>/icons/sec-icon-2.png" 
                 alt="icon">
             </div>
-            span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>
+            <span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>
             <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
         </div>
         <div class="row align-items-center">

@@ -6,6 +6,7 @@ $img_src_1 = $this->_Convert->convert_img('product/'.$pro1[0]['code'].'/', $imag
 $pro2 = $this->_Data->get_data_product_five($item[0]['pro_id_2']);
 $image_product_2 = $this->_Data->get_image_product($pro2[0]['code'], 0, 1);
 $img_src_2 = $this->_Convert->convert_img('product/'.$pro2[0]['code'].'/', $image_product_2[0]['image'], $width, $height, 2);
+$img_src = $this->_Convert->convert_img('other/', $item[0]['image'], '559', '572', 3);
 ?>
 <section class="space-bottom">
     <div class="container">
@@ -13,7 +14,7 @@ $img_src_2 = $this->_Convert->convert_img('product/'.$pro2[0]['code'].'/', $imag
             <div class="col-xl-6 mb-40 mb-xl-0">
                 <div class="img-box4">
                     <div class="img-1">
-                        <img src="<?php echo URL.'/styles/assets/img' ?>/about/ab-8-1.png" alt="About Image">
+                        <img src="<?php echo URL_IMAGE.'/other/559x572/'.$img_src ?>" alt="About Image">
                     </div>
                 </div>
             </div>

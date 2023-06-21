@@ -180,6 +180,14 @@ class Model {
         $query = $this->db->query("SELECT * FROM tbl_address WHERE id = $id");
         return $query->fetchAll();
     }
+
+    /**
+     * Display data block two
+     */
+    function get_block_two(){
+        $query = $this->db->query("SELECT * FROM tbl_block_2 WHERE id = 1");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 

@@ -169,7 +169,7 @@ class Convert{
             }else{
                 $filename = $array_img[0].'.jpg';
             }
-        }else{
+        }elseif($type == 2){
             $array_img = explode("_", $fileimage);
             if(!file_exists($dir.'/'.$w.'x'.$h.'/'.$array_img[0].'_'.end($array_img).'.jpg')){
                 $magicianObj = new imageLib($dir.'/'.$fileimage);
@@ -183,6 +183,21 @@ class Convert{
                 $filename = $array_img[0].'_'.end($array_img).'.jpg';
             }else{
                 $filename = $array_img[0].'_'.end($array_img).'.jpg';
+            }
+        }else{
+            $array_img = explode(".", $fileimage);
+            if(!file_exists($dir.'/'.$w.'x'.$h.'/'.$array_img[0].'.jpg')){
+                $magicianObj = new imageLib($dir.'/'.$fileimage);
+                $ext = pathinfo($fileimage, PATHINFO_EXTENSION);
+                if($ext == 'png'){
+                    $magicianObj -> setTransparency(false);
+                    $magicianObj -> setFillColor('#ffffff');
+                }
+                $magicianObj->resizeImage($w, $h, 'crop');
+                $magicianObj->saveImage($dir.'/'.$w.'x'.$h.'/'.$array_img[0].'.jpg', 100);
+                $filename = $array_img[0].'.jpg';
+            }else{
+                $filename = $array_img[0].'.jpg';
             }
         }
         return $filename;
