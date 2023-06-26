@@ -1,6 +1,6 @@
 <?php
 $item = $this->_Data->get_block_three();
-$json = $this->_Data->get_data_product($item[0]['type'], $item[0]['data_id']);
+$json = $this->_Data->get_data_product($item[0]['type_data'], $item[0]['data_id']);
 ?>
 <section class="sec-bg3 vs-shop-wrapper" data-bg-src="<?php echo URL.'/styles/assets/img' ?>/shape/bg-00778.png">
     <div class="section-title text-center">

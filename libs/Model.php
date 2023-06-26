@@ -188,6 +188,15 @@ class Model {
         $query = $this->db->query("SELECT * FROM tbl_block_2 WHERE id = 1");
         return $query->fetchAll();
     }
+
+    /**
+     * Display slider
+     */
+    function get_slider(){
+        $query = $this->db->query("SELECT * FROM tbl_slider WHERE active = 1 ORDER BY RAND()
+                                    LIMIT 0, 5");
+        return $query->fetchAll();
+    }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////
 }
 
