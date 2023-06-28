@@ -17,6 +17,7 @@
                     <div class="col-lg-6">
                         <h2 class="h4">Billing Details</h2>
                         <div class="row gx-2">
+                            <div class="row gx-2" id="info_address">
                             <?php
                             if(count($this->address) > 0){
                                 $z = 0; $add_id = 0;
@@ -25,29 +26,30 @@
                                     if($row_add['default_add'] == 1){
                                         $add_id = $row_add['id'];
                                         echo "
-                                        <span>".$row_add['firstname']." ".$row_add['lastname']."</span>
-                                        <span>".$row_add['phone']."</span>
-                                        <span>".$row_add['address']."</span>
-                                        <span>".$row_add['city']."</span>
-                                        <span>".$row_add['state']." - ".$row_add['code_state']."</span>
-                                        <span>".$row_add['postcode']."</span>
+                                        <span><b>Fullname:</b> ".$row_add['firstname']." ".$row_add['lastname']."</span>
+                                        <span><b>Phone:</b> ".$row_add['phone']."</span>
+                                        <span><b>Street address:</b> ".$row_add['address']."</span>
+                                        <span><b>City:</b> ".$row_add['city']."</span>
+                                        <span><b>State:</b> ".$row_add['state']." - ".$row_add['code_state']."</span>
+                                        <span><b>Zip code:</b> ".$row_add['postcode']."</span>
                                         ";
                                     }else{
                                         if($z == 1){
                                             $add_id = $row_add['id'];
                                             echo "
-                                            <span>".$row_add['firstname']." ".$row_add['lastname']."</span>
-                                            <span>".$row_add['phone']."</span>
-                                            <span>".$row_add['address']."</span>
-                                            <span>".$row_add['city']."</span>
-                                            <span>".$row_add['state']." - ".$row_add['code_state']."</span>
-                                            <span>".$row_add['postcode']."</span>
+                                            <span><b>Fullname:</b> ".$row_add['firstname']." ".$row_add['lastname']."</span>
+                                            <span><b>Phone:</b> ".$row_add['phone']."</span>
+                                            <span><b>Street address:</b> ".$row_add['address']."</span>
+                                            <span><b>City:</b> ".$row_add['city']."</span>
+                                            <span><b>State:</b> ".$row_add['state']." - ".$row_add['code_state']."</span>
+                                            <span><b>Zip code:</b> ".$row_add['postcode']."</span>
                                             ";
                                         }
                                     }
                                 }
                             ?>
-                            <button type="button" class="vs-btn shadow-none w250" onclick="">
+                            </div>
+                            <button type="button" class="vs-btn shadow-none w250" onclick="change_address()">
                                 <i class="fa fa-sync"></i>
                                 Change Address
                             </button>
@@ -55,7 +57,8 @@
                             }else{
                                 $add_id = 0;
                             ?>
-                            <button type="button" class="vs-btn shadow-none w200" onclick="window.location.href='<?php echo URL.'/ad_add' ?>'">
+                            <button type="button" class="vs-btn shadow-none w200"
+                                onclick="window.location.href='<?php echo URL.'/ad_add' ?>'">
                                 <i class="fa fa-plus"></i>
                                 Add Address
                             </button>
@@ -66,7 +69,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="col-12 form-group">
-                            <label>Other Note</label> 
+                            <label>Other Note</label>
                             <textarea cols="20" rows="5" class="form-control" id="note" name="note"
                                 placeholder="Notes about your order, e.g. special notes for delivery."
                                 style="resize:none"></textarea>
@@ -98,9 +101,8 @@
                         <tr class="cart_item">
                             <td data-title="Product">
                                 <a class="cart-productimage" href="javascript:void(0)">
-                                    <img width="91" 
-                                        height="91"
-                                        src="<?php echo URL_IMAGE.'/product/'.$row_cart['code_sp'].'/'.$width.'x'.$height.'/'.$img_src ?>" 
+                                    <img width="91" height="91"
+                                        src="<?php echo URL_IMAGE.'/product/'.$row_cart['code_sp'].'/'.$width.'x'.$height.'/'.$img_src ?>"
                                         alt="<?php echo $row_cart['title'] ?>">
                                 </a>
                             </td>
@@ -172,20 +174,20 @@
                         <div class="woocommerce-message">Payment Infomation.</div>
                     </div>
                     <form id="fm-order" class="woocommerce-form-login">
-                        <input id="addid" name="addid" type="hidden" value="<?php echo $add_id ?>"/>
-                        <input id="total_cart" name="total_cart" type="hidden" value="<?php echo $total ?>"/>
-                        <input id="comment" name="comment" type="hidden"/>
+                        <input id="addid" name="addid" type="hidden" value="<?php echo $add_id ?>" />
+                        <input id="total_cart" name="total_cart" type="hidden" value="<?php echo $total ?>" />
+                        <input id="comment" name="comment" type="hidden" />
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>Card Number *</label> 
-                                    <input type="text" class="form-control" placeholder="Card Number" id="cardnumber" 
-                                    name="cardnumber" required="" onkeypress="validate(event)">
+                                    <label>Card Number *</label>
+                                    <input type="text" class="form-control" placeholder="Card Number" id="cardnumber"
+                                        name="cardnumber" required="" onkeypress="validate(event)">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>Expiration Month *</label> 
+                                    <label>Expiration Month *</label>
                                     <select class="form-control" id="month" name="month" required="">
                                         <?php
                                         for($i = 1; $i <= 12; $i++){
@@ -197,7 +199,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>Expiration Year *</label> 
+                                    <label>Expiration Year *</label>
                                     <select class="form-control" id="year" name="year" required="">
                                         <?php
                                         for($j = 2023; $j <= 2040; $j++){
@@ -209,9 +211,9 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>CVV *</label> 
-                                    <input type="password" class="form-control" placeholder="CVV" id="cvv" 
-                                    name="cvv" required="" onkeypress="validate(event)" maxlength="3">
+                                    <label>CVV *</label>
+                                    <input type="password" class="form-control" placeholder="CVV" id="cvv" name="cvv"
+                                        required="" onkeypress="validate(event)" maxlength="3">
                                 </div>
                             </div>
                         </div>
@@ -223,3 +225,68 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="address_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="z-index:999;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Address book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="cart_table mb-20">
+                        <thead>
+                            <tr>
+                                <th class="cart-col-productname">Country</th>
+                                <th class="cart-col-price">State</th>
+                                <th class="cart-col-quantity">City</th>
+                                <th class="cart-col-total">Street address</th>
+                                <th class="cart-col-total">Zip code</th>
+                                <th class="cart-col-total">Phone</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach($this->address as $row){
+                            ?>
+                            <tr>
+                                <td colspan="5">
+                                    <?php echo $row['firstname'].' '.$row['lastname'] ?>- Email: <?php echo $_SESSION['data'][0]['email'] ?>
+                                </td>
+                            </tr>
+                            <tr class="cart_item">
+                                <td>USA</td>
+                                <td id="state_<?php echo $row['id'] ?>"><?php echo $row['state'] ?></td>
+                                <td id="city_<?php echo $row['id'] ?>"><?php echo $row['city'] ?></td>
+                                <td id="street_<?php echo $row['id'] ?>"><?php echo $row['address'] ?></td>
+                                <td id="zip_<?php echo $row['id'] ?>"><?php echo $row['postcode'] ?></td>
+                                <td id="phone_<?php echo $row['id'] ?>"><?php echo $row['phone'] ?></td>
+                                <td>
+                                    <input id="ck_add_<?php echo $row['id'] ?>" name="ck_add_<?php echo $row['id'] ?>" 
+                                    type="checkbox" onclick="confirm_address(<?php echo $row['id'] ?>)"/>
+                                </td>
+                                <td style="display:none" id="codestate_<?php echo $row['id'] ?>"><?php echo $row['code_state'] ?></td>
+                                <td style="display:none" id="fullname_<?php echo $row['id'] ?>"><?php echo $row['firstname'].' '.$row['lastname'] ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php
+    if($total == 0){
+    ?>
+    <script>
+    window.location.href = baseUrl + '/cart.html';
+    </script>
+    <?php
+    }
+    ?>

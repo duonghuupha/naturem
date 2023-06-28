@@ -24,6 +24,7 @@
                             <th class="cart-col-quantity">City</th>
                             <th class="cart-col-total">Street address</th>
                             <th class="cart-col-total">Zip code</th>
+                            <th class="cart-col-total">Phone</th>
                             <th class="cart-col-remove">Action</th>
                         </tr>
                     </thead>
@@ -32,7 +33,7 @@
                         foreach($this->jsonObj as $row){
                         ?>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="6">
                                 <?php echo $row['firstname'].' '.$row['lastname'] ?>- Email: <?php echo $_SESSION['data'][0]['email'] ?>
                             </td>
                             <td data-title="Remove" rowspan="2">
@@ -64,12 +65,13 @@
                             <td><?php echo $row['city'] ?></td>
                             <td><?php echo $row['address'] ?></td>
                             <td><?php echo $row['postcode'] ?></td>
+                            <td><?php echo $row['phone'] ?></td>
                         </tr>
                         <?php
                         }
                         ?>
                         <tr>
-                            <td colspan="6" class="actions">
+                            <td colspan="7" class="actions">
                                 <a href="<?php echo URL.'/ad_add' ?>" class="vs-btn rounded-1 shadow-none">Add Address</a>
                             </td>
                         </tr>

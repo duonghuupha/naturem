@@ -193,6 +193,21 @@ function checkout(){
     }
 }
 
+function change_address(){
+    $('#address_data').modal('show');
+}
+
+function confirm_address(idh){
+    $('#addid').val(idh); var html = '';
+    html += "<span><b>Fullname:</b> "+$('#fullname_'+idh).text()+"</span>";
+    html += "<span><b>Phone:</b> "+$('#phone_'+idh).text()+"</span>";
+    html += "<span><b>Street address:</b> "+$('#street_'+idh).text()+"</span>";
+    html += "<span><b>City:</b> "+$('#city_'+idh).text()+"</span>";
+    html += "<span><b>State:</b> "+$('#state_'+idh).text()+" - "+$('#codestate_'+idh).text()+"</span>";
+    html += "<span><b>Zip code:</b> "+$('#zip_'+idh).text()+"</span>";
+    $('#info_address').html(html); $('#address_data').modal('hide');
+}
+
 /********************************** */
 function show_message(icon, msg){
     $.toast({

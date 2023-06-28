@@ -389,7 +389,7 @@ textarea.form-control {
     padding-bottom: 17px
 }
 
-input[type=checkbox] {
+/*input[type=checkbox] {
     visibility: hidden;
     opacity: 0;
     display: inline-block;
@@ -397,7 +397,7 @@ input[type=checkbox] {
     width: 0;
     height: 0;
     display: none
-}
+}*/
 
 input[type=checkbox]:checked~label:before {
     content: "ï€Œ";
@@ -10148,7 +10148,7 @@ blockquote.wp-block-quote.has-text-align-right cite:before {
     font-weight: 700;
     text-transform: uppercase;
     border: none;
-    padding: 27px 15px
+    /*padding: 27px 15px*/
 }
 
 .cart_table td:before {
@@ -11878,7 +11878,7 @@ table.woocommerce-grouped-product-list.group_table td {
 
 @media(max-width: 1500px) {
     .sec-bg3 {
-        padding-top: 130px
+        padding-top: 35px
     }
 }
 
@@ -14584,4 +14584,9 @@ table.woocommerce-grouped-product-list.group_table td {
     100% {
         transform: rotate(360deg);
     }
+}
+
+a.disabled{
+    pointer-events: none;
+    cursor: default;
 }

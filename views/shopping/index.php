@@ -103,7 +103,7 @@ $jsonObj = $this->jsonObj;
                         </strong>
                     </h2>
                     <div class="wc-proceed-to-checkout mb-30">
-                        <a href="<?php echo URL.'/checkout.html' ?>" class="vs-btn rounded-1 shadow-none">
+                        <a href="<?php echo URL.'/checkout.html' ?>" class="vs-btn rounded-1 shadow-none <?php echo ($total != 0) ? '' : 'disabled' ?>">
                             Proceed to checkout
                         </a>
                     </div>
