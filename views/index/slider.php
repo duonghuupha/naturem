@@ -45,14 +45,14 @@ $json = $this->_Data->get_slider(); $i = 0;
                 data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint;">
                 <?php echo $row['title_2'] ?>
             </p>
-            <div style="top:611px; left:375px; background-size:inherit; background-position:inherit;"
+            <!--<div style="top:611px; left:375px; background-size:inherit; background-position:inherit;"
                 class="ls-l ls-hide-tablet ls-hide-phone"
                 data-ls="offsetyin:100; durationin:1500; delayin:800; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint;">
                 <a href="<?php echo $row['link_btn'] ?>" class="vs-btn style5">
                     <?php echo $row['title_btn'] ?>
                     <i class="far fa-angle-right"></i>
                 </a>
-            </div>
+            </div>-->
             <!---------------------------------------------------------------------------------------->
             <img width="658" 
                 height="543" 
@@ -81,12 +81,12 @@ $json = $this->_Data->get_slider(); $i = 0;
                 data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint;">
                 <?php echo $row['title_2'] ?>
             </p>
-            <span
+            <!--<span
                 style="top:490px; left:100px; font-weight:700; background-size:inherit; background-position:inherit; padding-right:100px; padding-bottom:50px; padding-left:100px; font-family:'Lato',sans-serif; font-size:60px; color:#fff; border-radius:9999px; border-top:3px solid #fff; border-right:3px solid #fff; border-bottom:3px solid #fff; border-left:3px solid #fff; padding-top:50px;"
                 class="ls-l ls-hide-desktop ls-hide-tablet"
                 data-ls="offsetyin:200; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hovereasingin:easeOutQuint; hoverbgcolor:#ffffff; hovercolor:#76a713;">
                 <?php echo $row['title_btn'] ?>
-            </span>
+            </span>-->
         </div>
         <?php
         }

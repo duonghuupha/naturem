@@ -2,7 +2,7 @@
 
 include('slider.php');
 
-include('block_one.php');
+//include('block_one.php');
 
 //include('block_two.php');
 

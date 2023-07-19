@@ -76,7 +76,7 @@ $global = $this->_Data->get_setting_global();
                         <!--<p class="info">
                             <img src="<?php echo URL.'/styles/assets/img' ?>/icons/info-icon-1.png" alt="icon">
                             Free exress international delevery + Easy returens
-                        </p>->>
+                        </p>-->
                     </div>
                 </div>
                 <div class="col-lg-auto text-center text-lg-end">

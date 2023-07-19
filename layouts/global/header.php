@@ -35,8 +35,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-6 col-md-4 col-lg-4 d-none d-sm-block">
-                    <p class="text-body2 mb-0 fs-xs fw-semibold font-theme d-none d-md-inline-block"><span
-                            class="text-theme">Free exress</span> international delevery + Easy returens</p>
+                    <!--<p class="text-body2 mb-0 fs-xs fw-semibold font-theme d-none d-md-inline-block"><span
+                            class="text-theme">Free exress</span> international delevery + Easy returens</p>-->
                 </div>
                 <div class="col col-md-5 col-lg-4 text-center">
                     

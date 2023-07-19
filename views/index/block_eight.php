@@ -20,7 +20,7 @@ $img_src = $this->_Convert->convert_img('other/', $item[0]['image'], '559', '572
             </div>
             <div class="col-xl-6">
                 <div class="content-style2">
-                    <span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>
+                    <!--<span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>-->
                     <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
                     <p class="sec-text">
                         <?php echo $item[0]['description'] ?>
