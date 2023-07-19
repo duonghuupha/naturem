@@ -18,7 +18,8 @@ $img_src = $this->_Convert->convert_img('other/', $item[0]['image'], $width, $he
             <div class="col-lg-6 col-xl-auto mb-40 mb-lg-0">
                 <div class="img-box2">
                     <div class="img-1">
-                        <img src="<?php echo URL_IMAGE.'/other/'.$width.'x'.$height.'/'.$img_src ?>" alt="Naturem"/>
+                        <!--<img src="<?php echo URL_IMAGE.'/other/'.$width.'x'.$height.'/'.$img_src ?>" alt="Naturem"/>-->
+                        <img src="<?php echo URL_IMAGE.'/other/'.$item[0]['image'] ?>" alt="Naturem"/>
                     </div>
                 </div>
             </div>

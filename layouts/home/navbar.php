@@ -73,10 +73,10 @@ $global = $this->_Data->get_setting_global();
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto d-none d-lg-block">
                     <div class="header-infos">
-                        <p class="info">
+                        <!--<p class="info">
                             <img src="<?php echo URL.'/styles/assets/img' ?>/icons/info-icon-1.png" alt="icon">
                             Free exress international delevery + Easy returens
-                        </p>
+                        </p>->>
                     </div>
                 </div>
                 <div class="col-lg-auto text-center text-lg-end">

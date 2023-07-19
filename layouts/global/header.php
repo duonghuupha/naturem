@@ -27,7 +27,7 @@
 <body class="home-6">
     <div class="preloader"><button class="vs-btn preloaderCls">Cancel Preloader</button>
         <div class="preloader-inner">
-            <div class="loader-logo"><img src="<?php echo URL.'/styles/assets/img' ?>/logo.png" alt="Foodelio"></div>
+            <div class="loader-logo"><img src="<?php echo URL.'/styles/assets/img' ?>/logo_naturem.png" alt="Foodelio"></div>
             <div class="loader-wrap pt-4"><span class="loader"></span></div>
         </div>
     </div>
