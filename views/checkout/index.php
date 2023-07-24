@@ -70,9 +70,9 @@
                     <div class="col-lg-6">
                         <div class="col-12 form-group">
                             <label>Other Note</label>
-                            <textarea cols="20" rows="5" class="form-control" id="note" name="note"
+                            <textarea cols="20"class="form-control" id="note" name="note"
                                 placeholder="Notes about your order, e.g. special notes for delivery."
-                                style="resize:none"></textarea>
+                                style="resize:none;height:100px"></textarea>
                         </div>
                     </div>
                 </div>
@@ -144,15 +144,14 @@
                                         </span>
                                     </td>
                                 </tr>
-                                <!--<tr class="woocommerce-shipping-totals shipping">
+                                <tr class="woocommerce-shipping-totals shipping">
                                     <th>Shipping and Handling</th>
                                     <td data-title="Shipping">
-                                        <ul class="woocommerce-shipping-methods list-unstyled">
-                                            <li><input type="checkbox" name="shipping_method" class="shipping_method"
-                                                    checked="checked"> <label>Flat rate</label></li>
-                                        </ul>
+                                        <span class="amount">
+                                            <bdi><span>$</span><?php echo $total ?></bdi>
+                                        </span>
                                     </td>
-                                </tr>-->
+                                </tr>
                                 <tr class="order-total">
                                     <th>Order Total</th>
                                     <td>
