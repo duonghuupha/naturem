@@ -1,5 +1,5 @@
 <?php
-$json = $this->_Data->get_slider(); $i = 0;
+$json = $this->_Data->get_block_1(); $i = 0;
 ?>
 <div class="">
     <div class="vs-hero-carousel" 

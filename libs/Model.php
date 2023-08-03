@@ -36,7 +36,7 @@ class Model {
         return $query;
     }
 ///////////////////////////// cac ham khac //////////////////////////////////////////////////////////////////////////////////
-    /**
+        /**
      * Display menu top no parent
      */
     function get_menu_parent_top(){
@@ -107,15 +107,19 @@ class Model {
                                     ORDER BY id ASC LIMIT $start, $end");
         return $query->fetchAll();
     }
-
+//////////////////////////////////////////////Cac ham block//////////////////////////////////////////
     /**
-     * Display data block one
+     * Get all block
      */
-    function get_block_one(){
-        $query = $this->db->query("SELECT * FROM tbl_block_1 WHERE id = 1");
+    function get_block(){
+        $query = $this->db->query("SELECT * FROM tbl_block WHERE status = 1 AND id != 7
+                                    ORDER BY order_block ASC");
         return $query->fetchAll();
     }
 
+    /**
+     * 
+     */
     function get_category_via_block_one($array){
         $query = $this->db->query("SELECT id, title, description, image FROM tbl_category 
                                     WHERE active = 1 AND FIND_IN_SET(id, '$array')");
@@ -123,10 +127,10 @@ class Model {
     }
 
     /**
-     * Display data block three
+     * Display data block 2
      */
-    function get_block_three(){
-        $query = $this->db->query("SELECT * FROM tbl_block_3 WHERE id = 1");
+    function get_block_2(){
+        $query = $this->db->query("SELECT * FROM tbl_block_2 WHERE id = 1");
         return $query->fetchAll();
     }
 
@@ -142,23 +146,23 @@ class Model {
     }
 
     /**
-     * Display data block five
+     * Display data block 3
      */
-    function get_block_five(){
-        $query = $this->db->query("SELECT * FROM tbl_block_4 WHERE id = 1");
+    function get_block_3(){
+        $query = $this->db->query("SELECT * FROM tbl_block_3 WHERE id = 1");
         return $query->fetchAll();
     }
 
-    function get_data_product_five($id){
+    function get_data_product_3($id){
         $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE id = $id");
         return $query->fetchAll();
     }
 
     /**
-     * Display data block night
+     * Display data block 6
      */
-    function get_block_night(){
-        $query = $this->db->query("SELECT * FROM tbl_block_9 WHERE id = 1");
+    function get_block_6(){
+        $query = $this->db->query("SELECT * FROM tbl_block_6 WHERE id = 1");
         return $query->fetchAll();
     }
 
@@ -169,10 +173,10 @@ class Model {
     }
 
     /**
-     * Display data block seven
+     * Display data block 4
      */
-    function get_block_sevent(){
-        $query = $this->db->query("SELECT * FROM tbl_block_7 WHERE id = 1");
+    function get_block_4(){
+        $query = $this->db->query("SELECT * FROM tbl_block_4 WHERE id = 1");
         return $query->fetchAll();
     }
 
@@ -182,19 +186,28 @@ class Model {
     }
 
     /**
-     * Display data block two
+     * Display block_1
      */
-    function get_block_two(){
-        $query = $this->db->query("SELECT * FROM tbl_block_2 WHERE id = 1");
+    function get_block_1(){
+        $query = $this->db->query("SELECT * FROM tbl_block_1 WHERE status = 1 ORDER BY RAND()
+                                    LIMIT 0, 5");
         return $query->fetchAll();
     }
 
     /**
-     * Display slider
+     * check display block 7
      */
-    function get_slider(){
-        $query = $this->db->query("SELECT * FROM tbl_slider WHERE active = 1 ORDER BY RAND()
-                                    LIMIT 0, 5");
+    function check_block_7(){
+        $query = $this->db->query("SELECT COUNT(*) AS Total FROM tbl_block WHERE id = 7 AND status = 1");
+        $row = $query->fetchAll();
+        return $row[0]['Total'];
+    }
+
+    /**
+     * Display blockk 7
+     */
+    function get_block_7(){
+        $query = $this->db->query("SELECT id, code, image FROM tbl_block_7 WHERE status = 1");
         return $query->fetchAll();
     }
 /////////////////////////////////////end cac ham khac ///////////////////////////////////////////////////////////////////////

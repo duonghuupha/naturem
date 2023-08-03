@@ -1,38 +1,29 @@
 <?php
 $global = $this->_Data->get_setting_global();
 ?>
+    <?php
+    if($this->_Data->check_block_7() > 0){
+    ?>
     <section class="banner-wrap1">
         <div class="container-fluid">
             <div class="row gy-30">
+                <?php
+                foreach($this->_Data->get_block_7() as $row){
+                ?>
                 <div class="col-lg-4">
-                    <div class="banner-style1" data-bg-src="<?php echo URL.'/styles/assets/img' ?>/ad/adv-1.png">
-                        <div class="banner-content">
-                            <span class="banner-subtitle">Herbal Lozenges</span>
-                            <h3 class="banner-title">100% HERBAL NATURAL</h3>
-                        </div>
+                    <div class="banner-style1" 
+                        data-bg-src="<?php echo URL_IMAGE.'/other/'.$row['image'] ?>">
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="banner-style1" data-bg-src="<?php echo URL.'/styles/assets/img' ?>/ad/adv-2.png">
-                        <div class="banner-content">
-                            <span class="banner-subtitle">Soybalac</span>
-                            <h3 class="banner-title">
-                                Probiotics
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="banner-style1" data-bg-src="<?php echo URL.'/styles/assets/img' ?>/ad/adv-3.png">
-                        <div class="banner-content">
-                            <span class="banner-subtitle">Herbal Lozenges</span>
-                            <h3 class="banner-title">100% HERBAL NATURAL</h3>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
+    <?php
+    }
+    ?>
     <footer class="footer-wrapper footer-layout2" data-bg-src="<?php echo URL.'/styles/assets/img' ?>/shape/footer-5-1.jpg">
         <div class="container">
             <div class="widget-area">

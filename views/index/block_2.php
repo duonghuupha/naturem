@@ -1,14 +1,13 @@
 <?php
-$item = $this->_Data->get_block_three();
-$json = $this->_Data->get_data_product($item[0]['type_data'], $item[0]['data_id']);
+$item = $this->_Data->get_block_2();
+$json = $this->_Data->get_data_product($item[0]['type_data'], $item[0]['link']);
 ?>
 <section class="sec-bg3 vs-shop-wrapper">
     <div class="section-title text-center">
         <div class="sec-icon">
             <img src="<?php echo URL.'/styles/assets/img' ?>/icons/sec-icon-2.png" alt="icon">
         </div>
-        <!--<span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>-->
-        <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
+        <h2 class="sec-title3"><?php echo $item[0]['title'] ?></h2>
     </div>
     <div class="container position-relative">
         <div class="vs-carousel" 

@@ -1,9 +1,9 @@
 <?php
-$item = $this->_Data->get_block_sevent(); $width = 290; $height = 260;
-$pro1 = $this->_Data->get_data_product_five($item[0]['pro_id_1']);
+$item = $this->_Data->get_block_4(); $width = 290; $height = 260;
+$pro1 = $this->_Data->get_data_product_3($item[0]['pro_id_1']);
 $image_product_1 = $this->_Data->get_image_product($pro1[0]['code'], 0, 1);
 $img_src_1 = $this->_Convert->convert_img('product/'.$pro1[0]['code'].'/', $image_product_1[0]['image'], $width, $height, 2);
-$pro2 = $this->_Data->get_data_product_five($item[0]['pro_id_2']);
+$pro2 = $this->_Data->get_data_product_3($item[0]['pro_id_2']);
 $image_product_2 = $this->_Data->get_image_product($pro2[0]['code'], 0, 1);
 $img_src_2 = $this->_Convert->convert_img('product/'.$pro2[0]['code'].'/', $image_product_2[0]['image'], $width, $height, 2);
 $img_src = $this->_Convert->convert_img('other/', $item[0]['image'], '559', '572', 3);
@@ -20,8 +20,7 @@ $img_src = $this->_Convert->convert_img('other/', $item[0]['image'], '559', '572
             </div>
             <div class="col-xl-6">
                 <div class="content-style2">
-                    <!--<span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>-->
-                    <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
+                    <h2 class="sec-title3"><?php echo $item[0]['title'] ?></h2>
                     <p class="sec-text">
                         <?php echo $item[0]['description'] ?>
                     </p>

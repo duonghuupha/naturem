@@ -1,5 +1,5 @@
 <?php
-$item = $this->_Data->get_block_night();
+$item = $this->_Data->get_block_6();
 $json = $this->_Data->get_data_blog_via_block($item[0]['number_post']);
 ?>
 <section class="vs-blog-wrapper space-top space-md-bottom">
@@ -8,8 +8,7 @@ $json = $this->_Data->get_data_blog_via_block($item[0]['number_post']);
             <div class="sec-icon">
                 <img src="<?php echo URL.'/styles/assets/img' ?>/icons/sec-icon-2.png" alt="icon">
             </div>
-            <span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>
-            <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
+            <h2 class="sec-title3"><?php echo $item[0]['title'] ?></h2>
         </div>
         <div class="row vs-carousel" data-slide-show="3" data-sm-slide-show="1">
             <?php
@@ -29,7 +28,7 @@ $json = $this->_Data->get_data_blog_via_block($item[0]['number_post']);
                     <div class="blog-content">
                         <div class="tags">
                             <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-blogs-'.base64_encode($row['id']).'.html' ?>">
-                                Nanturem
+                                Naturem
                             </a>
                         </div>
                         <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-blogs-'.base64_encode($row['id']).'.html' ?>" class="blog-date">

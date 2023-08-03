@@ -1,5 +1,5 @@
 <?php
-$item = $this->_Data->get_block_five(); $json = $this->_Data->get_data_product_five($item[0]['data_id']);
+$item = $this->_Data->get_block_3(); $json = $this->_Data->get_data_product_3($item[0]['data_id']);
 $image_product = $this->_Data->get_image_product($json[0]['code'], 0, 1); $width = 709; $height = 703;
 $img_src = $this->_Convert->convert_img('product/'.$json[0]['code'].'/', $image_product[0]['image'], $width, $height, 2);
 ?>
@@ -10,14 +10,13 @@ $img_src = $this->_Convert->convert_img('product/'.$json[0]['code'].'/', $image_
                 <img src="<?php echo URL.'/styles/assets/img' ?>/icons/sec-icon-2.png" 
                 alt="icon">
             </div>
-            <!--<span class="sub-title4"><?php echo $item[0]['title_1'] ?></span>-->
-            <h2 class="sec-title3"><?php echo $item[0]['title_2'] ?></h2>
+            <h2 class="sec-title3"><?php echo $item[0]['title_1'] ?></h2>
         </div>
         <div class="row align-items-center">
             <div class="col-lg-4 order-3 order-lg-1">
                 <div class="content-style1">
                     <!--<span class="about-subtitle"><?php echo $item[0]['content_1'] ?></span>-->
-                    <h3 class="about-title"><?php echo $item[0]['content_2'] ?></h3>
+                    <h3 class="about-title"><?php echo $item[0]['title_2'] ?></h3>
                     <p class="about-text">
                         <?php echo $item[0]['description'] ?>
                     </p>
