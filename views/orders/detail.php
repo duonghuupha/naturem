@@ -107,11 +107,41 @@ $item = $this->info; $add = $this->add;
                                     </td>
                                 </tr>
                                 <tr class="order-total">
+                                    <th>Shipping</th>
+                                    <td>
+                                        <strong>
+                                            <span class="amount">
+                                                <bdi><span>$</span><?php echo $item[0]['ship_price'] ?></bdi>
+                                            </span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr class="order">
+                                    <th>Shipping method</th>
+                                    <td>
+                                        <strong>
+                                            <span class="amount">
+                                                <bdi>
+                                                    <?php
+                                                    if($item[0]['service_ship'] == 1){
+                                                        echo "Regular";
+                                                    }elseif($item[0]['serrvice_ship'] == 2){
+                                                        echo "Fast";
+                                                    }else{
+                                                        echo "Express";
+                                                    }
+                                                    ?>
+                                                </bdi>
+                                            </span>
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr class="order-total">
                                     <th>Order Total</th>
                                     <td>
                                         <strong>
                                             <span class="amount">
-                                                <bdi><span>$</span><?php echo $total ?></bdi>
+                                                <bdi><span>$</span><?php echo $total + $item[0]['ship_price'] ?></bdi>
                                             </span>
                                         </strong>
                                     </td>

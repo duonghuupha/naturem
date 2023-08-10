@@ -22,7 +22,7 @@ class Product_Model extends Model{
 
     function get_info_product($id){
         $query = $this->db->query("SELECT id, code, cate_id, title, stock, description, price, tags, longs,
-                                    wide, hight, weight, (SELECT tbl_category.title FROM tbl_category
+                                    wide, hight, pounds, ounces, (SELECT tbl_category.title FROM tbl_category
                                     WHERE tbl_category.id = cate_id) AS category FROM tbl_product WHERE id = $id");
         return $query->fetchAll();
     }

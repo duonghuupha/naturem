@@ -49,4 +49,7 @@ RewriteRule ^payment$ index.php?url=checkout/payment [QSA,L]
 RewriteRule ^my_orders.html$ index.php?url=orders [QSA,L]
 RewriteRule ^order-detail-(.*).html$ index.php?url=orders/detail&id=$1 [QSA,L]
 
+RewriteRule ^price_calculator.html$ index.php?url=checkout/price [QSA,L]
+RewriteRule ^change_ship.html$ index.php?url=checkout/change_ship [QSA,L]
+
 php_value display_errors on

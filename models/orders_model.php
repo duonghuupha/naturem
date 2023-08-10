@@ -8,9 +8,9 @@ class Orders_Model extends Model{
         $result = array();
         $query = $this->db->query("SELECT COUNT(*) AS Total FROM tbl_orders WHERE cus_id = $cusid");
         $row = $query->fetchAll();
-        $query = $this->db->query("SELECT id, code, create_at, coupon, address_id, comment, status,
+        $query = $this->db->query("SELECT id, code, create_at, coupon, address_id, comment, status, ship_price,
                                     auth_code, transid, (SELECT SUM(price_new*qty) FROM tbl_orders_detail
-                                    WHERE tbl_orders_detail.code = tbl_orders.code) AS total_cart 
+                                    WHERE tbl_orders_detail.code = tbl_orders.code) AS total_cart, service_ship
                                     FROM tbl_orders WHERE cus_id = $cusid ORDER BY id DESC LIMIT $offset, $rows");
         $result['total'] = $row[0]['Total'];
         $result['rows'] = $query->fetchAll();

@@ -52,7 +52,7 @@ $jsonObj = $this->jsonObj; $perpage = $this->perpage; $pages = $this->page;
                                 }
                                 ?>
                             </td>
-                            <td><?php echo '$'.$row['total_cart'] ?></td>
+                            <td><?php echo '$'.($row['total_cart'] + $row['ship_price']) ?></td>
                             <td><?php echo $row['auth_code'] ?></td>
                             <td><?php echo $row['transid'] ?></td>
                         </tr>

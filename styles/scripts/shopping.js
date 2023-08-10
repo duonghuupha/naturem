@@ -88,7 +88,6 @@ function change_pass(){
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function load_info_add(){
     var zip_code = $('#postcode').val();
     if(zip_code.length != 5){
@@ -152,7 +151,6 @@ function change_default(idh){
     save_no_form_reject(data_str, baseUrl + '/ad_change', baseUrl +'/manager_address.html');
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function checkout(){
     var required = $('#fm-order input, #fm-order textarea, #fm-order select').filter('[required]:visible');
     var allRequired = true;
@@ -206,6 +204,35 @@ function confirm_address(idh){
     html += "<span><b>State:</b> "+$('#state_'+idh).text()+" - "+$('#codestate_'+idh).text()+"</span>";
     html += "<span><b>Zip code:</b> "+$('#zip_'+idh).text()+"</span>";
     $('#info_address').html(html); $('#address_data').modal('hide');
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+function price_ship(){
+    $('.overlay').show();
+    $.getJSON(baseUrl + '/price_calculator.html', function(data){
+        //console.log(data.success);
+        if(data.success == 0){
+            //console.log(data.price.Package.Postage.Rate);
+            window.location.href = baseUrl + '/checkout.html?service_ship='+btoa(1)+'&price_ship='+btoa(data.price.Package.Postage.Rate);
+        }else{
+            show_message("error", data.msg);
+        }
+    });
+}
+
+function change_ship(value){
+    $('#service_ship').val(value);
+    $('.overlay').show();
+    $.getJSON(baseUrl + '/change_ship.html?service_ship='+btoa(value), function(data){
+        if(data.success == 0){
+            $('.overlay').hide();
+            $('#price_ship').val(data.price.Package.Postage.Rate)
+            var html = '<span>$</span>'+data.price.Package.Postage.Rate;
+            $('#ship').html(html);
+            var toal_ship = parseFloat($('#total_cart').val()) + parseFloat(data.price.Package.Postage.Rate);
+            var html1 = '<span>$</span>'+toal_ship;
+            $('#total_ship').html(html1);
+        }
+    });
 }
 
 /********************************** */

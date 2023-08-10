@@ -49,10 +49,11 @@
                                 }
                             ?>
                             </div>
-                            <button type="button" class="vs-btn shadow-none w250" onclick="change_address()">
+                            <div class="col-lg-12" style="margin-top:10px;"></div>
+                            <a href="javascript:void(0)" onclick="change_address()">
                                 <i class="fa fa-sync"></i>
                                 Change Address
-                            </button>
+                            </a>
                             <?php
                             }else{
                                 $add_id = 0;
@@ -131,6 +132,40 @@
                     </tbody>
                 </table>
             </form>
+            <div class="pt-10 pt-lg-5 mb-30">
+                <div class="woocommerce-checkout-payment">
+                    <ul class="wc_payment_methods payment_methods methods">
+                        <li class="wc_payment_method payment_method_regular">
+                            <input id="payment_method_regular" 
+                                type="radio"
+                                class="input-radio" 
+                                name="payment_method" 
+                                value="bacs" 
+                                checked="checked"
+                                onclick="change_ship(1)"> 
+                            <label for="payment_method_regular">Regular shipping</label>
+                        </li>
+                        <li class="wc_payment_method payment_method_fast">
+                            <input id="payment_method_fast" 
+                                type="radio"
+                                class="input-radio" 
+                                name="payment_method" 
+                                value="cheque"
+                                onclick="change_ship(2)"> 
+                            <label for="payment_method_fast">Fast shipping</label>
+                        </li>
+                        <li class="wc_payment_method payment_method_express">
+                            <input id="payment_method_express" 
+                                type="radio"
+                                class="input-radio" 
+                                name="payment_method" 
+                                value="cheque"
+                                onclick="change_ship(3)"> 
+                            <label for="payment_method_express">Express shipping</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="border ps-2 py-2 border-light">
                 <div class="row justify-content-lg-end">
                     <div class="col-md-8 col-lg-6 col-xl-4">
@@ -144,21 +179,20 @@
                                         </span>
                                     </td>
                                 </tr>
-                                <!--<tr class="woocommerce-shipping-totals shipping">
-                                    <th>Shipping and Handling</th>
-                                    <td data-title="Shipping">
-                                        <ul class="woocommerce-shipping-methods list-unstyled">
-                                            <li><input type="checkbox" name="shipping_method" class="shipping_method"
-                                                    checked="checked"> <label>Flat rate</label></li>
-                                        </ul>
+                                <tr class="cart-subtotal">
+                                    <th> Shipping</th>
+                                    <td>
+                                        <span class="amount">
+                                            <bdi id="ship"><span>$</span><?php echo base64_decode($_REQUEST['price_ship']) ?></bdi>
+                                        </span>
                                     </td>
-                                </tr>-->
+                                </tr>
                                 <tr class="order-total">
                                     <th>Order Total</th>
                                     <td>
                                         <strong>
                                             <span class="amount">
-                                                <bdi><span>$</span><?php echo $total ?></bdi>
+                                                <bdi id="total_ship"><span>$</span><?php echo $total + base64_decode($_REQUEST['price_ship']) ?></bdi>
                                             </span>
                                         </strong>
                                     </td>
@@ -177,6 +211,8 @@
                         <input id="addid" name="addid" type="hidden" value="<?php echo $add_id ?>" />
                         <input id="total_cart" name="total_cart" type="hidden" value="<?php echo $total ?>" />
                         <input id="comment" name="comment" type="hidden" />
+                        <input id="service_ship" name="service_ship" type="hidden" value="<?php echo base64_decode($_REQUEST['service_ship']) ?>"/>
+                        <input id="price_ship" name="price_ship" type="hidden" value="<?php echo base64_decode($_REQUEST['price_ship']) ?>"/>
                         <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group">

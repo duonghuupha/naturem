@@ -11,7 +11,9 @@ class Checkout_Model extends Model{
                                     WHERE tbl_image_product.code = (SELECT tbl_product.code FROM tbl_product
                                     WHERE tbl_product.id = pro_id) ORDER BY tbl_image_product.id ASC LIMIT 0, 1)
                                     AS image, (SELECT tbl_product.code FROM tbl_product WHERE tbl_product.id = pro_id) AS code_sp,
-                                    (SELECT tbl_product.stock FROM tbl_product WHERE tbl_product.id = pro_id) AS stock 
+                                    (SELECT tbl_product.stock FROM tbl_product WHERE tbl_product.id = pro_id) AS stock,
+                                    (SELECT tbl_product.pounds FROM tbl_product WHERE tbl_product.id = pro_id) AS pounds,
+                                    (SELECT tbl_product.ounces FROM tbl_product WHERE tbl_product.id = pro_id) AS ounces 
                                     FROM tbl_cart WHERE cus_id = $cusid");
         return $query->fetchAll();
     }
@@ -45,6 +47,11 @@ class Checkout_Model extends Model{
 /////////////////////////////////////////////////////////////////////////////////////////////////
     function get_detail_address($id){
         $query = $this->db->query("SELECT * FROM tbl_address WHERE id = $id");
+        return $query->fetchAll();
+    }
+
+    function setting_payment(){
+        $query = $this->db->query("SELECT * FROM tbl_setting_payment WHERE id = 1");
         return $query->fetchAll();
     }
 }
