@@ -78,7 +78,7 @@ $info_cate = $this->info_cate; $jsonObj = $this->jsonObj; $perpage = $this->perp
                                         </div>
                                         <div class="product-content">
                                             <div class="actions-btn">
-                                                <a href="javascript:void(0)" title="Add to cart"><i class="fal fa-cart-plus"></i></a>
+                                                <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-product-'.base64_encode($row['id']).'.html' ?>" title="Add to cart"><i class="fal fa-cart-plus"></i></a>
                                                 <a href="javascript:void(0)" title="Add to wish list"><i class="fal fa-heart"></i></a>
                                             </div>
                                             <h4 class="product-title h5 mb-0">
