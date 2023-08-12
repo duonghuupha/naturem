@@ -38,10 +38,7 @@ $json = $this->_Data->get_data_product($item[0]['type_data'], $item[0]['link']);
                             <div class="actions-btn">
                                 <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-product-'.base64_encode($row['id']).'.html' ?>" class="icon-btn">
                                     <i class="fal fa-search"></i>
-                                </a> 
-                                <a href="#" class="icon-btn">
-                                    <i class="fal fa-heart"></i>
-                                </a> 
+                                </a>
                                 <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($row['title'], true).'-product-'.base64_encode($row['id']).'.html' ?>" class="vs-btn style4 cart-btn">
                                     <i class="fal fa-cart-plus"></i>
                                     Add To Cart

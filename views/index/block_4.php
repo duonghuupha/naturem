@@ -79,9 +79,6 @@ $img_src = $this->_Convert->convert_img('other/', $item[0]['image'], '559', '572
                                     <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($pro2[0]['title'], true).'-product-'.base64_encode($pro2[0]['id']).'.html' ?>" class="icon-btn" tabindex="0">
                                         <i class="fal fa-search"></i>
                                     </a> 
-                                    <a href="#" class="icon-btn" tabindex="0">
-                                        <i class="fal fa-heart"></i>
-                                    </a> 
                                     <a href="<?php echo URL.'/'.$this->_Convert->vn2latin($pro2[0]['title'], true).'-product-'.base64_encode($pro2[0]['id']).'.html' ?>" class="vs-btn style4 cart-btn" tabindex="0">
                                         <i class="fal fa-cart-plus"></i>
                                         Add To Cart
