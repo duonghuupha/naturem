@@ -8,7 +8,26 @@ function add_to_cart(idh){
     }else{
         var data_str = "id="+btoa(idh)+'&qty=1';
     }
-    save_no_form_reject(data_str, baseUrl + '/add_cart.html', window.location.href);
+    $('.overlay').show();
+    $.ajax({
+        type: "POST",
+        url: baseUrl + '/add_cart.html',
+        data: data_str, // serializes the form's elements.
+        success: function(data){
+            var result = JSON.parse(data);
+            if(result.success == 0){
+                $('.overlay').hide();
+                window.location.href = window.location.href;
+            }else if(result.success == 1){
+                window.location.href = baseUrl + '/login.html';
+            }else{
+                $('.overlay').hide();
+                show_message('error', result.msg);
+                return false;
+            }
+        }
+    });
+    //save_no_form_reject(data_str, baseUrl + '/add_cart.html', window.location.href);
 }
 
 function update_from_cart(idh){
@@ -235,7 +254,8 @@ function change_ship(value){
     });
 }
 
-/********************************** */
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**************************************************************************************************** */
 function show_message(icon, msg){
     $.toast({
         heading: 'Notify',
