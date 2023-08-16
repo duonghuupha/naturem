@@ -70,7 +70,7 @@ $jsonObj = $this->jsonObj;
                             </td>
                             <td data-title="Total">
                                 <span class="amount">
-                                    <bdi><span>$</span><?php echo number_format($row['price'] * $row['qty']) ?></bdi>
+                                    <bdi><span>$</span><?php echo $row['price'] * $row['qty'] ?></bdi>
                                 </span>
                             </td>
                             <td data-title="Remove">
@@ -99,7 +99,7 @@ $jsonObj = $this->jsonObj;
                     <h2 class="h4 summary-title">
                         Cart Totals: 
                         <strong>
-                            <span class="amount"><bdi><span>$</span><?php echo number_format($total) ?></bdi></span>
+                            <span class="amount"><bdi><span>$</span><?php echo $total ?></bdi></span>
                         </strong>
                     </h2>
                     <div class="wc-proceed-to-checkout mb-30">
