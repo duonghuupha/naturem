@@ -135,7 +135,7 @@ class Model {
     }
 
     function get_data_product($type, $array){
-        if($type == 1){
+        if($type == 2){
             $query = $this->db->query("SELECT id, title, code, price FROM tbl_product WHERE active = 1
                                     AND FIND_IN_SET(id, '$array') LIMIT 0, 8");
         }else{
