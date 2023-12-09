@@ -72,8 +72,8 @@ $img_src = $this->_Convert->convert_img('blogs/content/', $item[0]['image'], $wi
                     </div>
                     <div class="related-post-wrapper pt-40">
                         <h2 class="inner-title1 h1">
-                            Relatetd 
-                            <span class="text-theme">Post</span>
+                            Related 
+                            <span class="text-theme">Posts</span>
                         </h2>
                         <div class="row text-center vs-carousel" data-slide-show="3" data-lg-slide-show="2">
                             <?php

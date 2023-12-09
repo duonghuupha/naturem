@@ -53,12 +53,14 @@ $global = $this->_Data->get_setting_global();
                     </form>
                     <p class="form-messages mt-20 mb-0"></p>
                 </div>
+                <!--
                 <div class="col-12 my-30">
                     <div class="ratio ratio-21x9">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.749446522523!2d-115.12792100952241!3d36.14521765075119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c49a15d00001%3A0xd833d9ac831b921c!2s1810%20E%20Sahara%20Ave%20STE%20215%2C%20Las%20Vegas%2C%20NV%2089104%2C%20Hoa%20K%E1%BB%B3!5e0!3m2!1svi!2s!4v1685755399464!5m2!1svi!2s" 
                             height="500" style="border:0;margin: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                 </div>
+                -->
             </div>
         </div>
     </section>
