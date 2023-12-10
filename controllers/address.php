@@ -8,7 +8,7 @@ class Address extends Controller{
     function index(){
         require('layouts/global/header.php');
 
-        $jsonObj = $this->model->getFetObj();
+        $jsonObj = $this->model->getFetObj($this->_Info[0]['id']);
         $this->view->jsonObj = $jsonObj;
 
         $this->view->render('address/index');

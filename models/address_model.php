@@ -4,8 +4,8 @@ class Address_Model extends Model{
         parent::__construct();
     }
 
-    function getFetObj(){
-        $query = $this->db->query("SELECT * FROM tbl_address ORDER BY id DESC");
+    function getFetObj($id){
+        $query = $this->db->query("SELECT * FROM tbl_address WHERE cus_id = $id ORDER BY id DESC");
         return $query->fetchAll();
     }
 

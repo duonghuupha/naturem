@@ -233,7 +233,11 @@ function price_ship(){
             //console.log(data.price.Package.Postage.Rate);
             window.location.href = baseUrl + '/checkout.html?service_ship='+btoa(1)+'&price_ship='+btoa(data.price.Package.Postage.Rate);
         }else{
+            $('.overlay').hide();
             show_message("error", data.msg);
+            setTimeout(function(){
+                window.location.href = baseUrl + '/manager_address.html';
+            }, 3000);
         }
     });
 }
